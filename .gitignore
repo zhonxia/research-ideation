@@ -12,3 +12,7 @@ Thumbs.db
 
 # WorkBuddy internal
 .workbuddy/
+
+# SkillHub upload — not part of the skill itself
+AGENTS.md
+LICENSE
