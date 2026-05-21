@@ -1,115 +1,189 @@
 # Research Ideation
 
+> A WorkBuddy skill for systematic research idea management.
+>
+> **Stop waiting for inspiration. Start generating ideas systematically.**
+
 [English](#english) | [中文](#中文)
 
 ---
 
 ## English
 
-### What is this?
+### The Problem
 
-A structured system for **generating, evaluating, and managing research ideas**. Built as a WorkBuddy skill, it helps academic researchers systematically explore research directions instead of waiting for inspiration.
+Most researchers generate ideas haphazardly — random inspiration, conference hallway conversations, supervisor suggestions. This leads to:
 
-### Who is it for?
+- **Duplication**: Spending weeks on an idea only to discover it's already been published
+- **Bias**: Over-investing in the first idea that seems promising without comparing alternatives
+- **Blind spots**: Missing entire research directions because no method exists to systematically explore the space
 
-Researchers in any academic field who need to:
-- Generate novel research directions
-- Evaluate whether an idea is worth pursuing
-- Track and compare multiple ideas
-- Verify novelty against existing literature
+### The Solution
 
-### How does it work?
+Research Ideation provides a **structured pipeline** with three layers:
 
-The system provides **6 structured brainstorming methods**:
+| Layer | What it does | Key artifact |
+|-------|-------------|--------------|
+| **Literature Baseline** | Extract research directions from papers you've read → know what already exists | `05-文献库/` + `索引.md` novelty map |
+| **Idea Generation** | 6 systematic brainstorming methods → cover the full search space | `待评估点子.md` |
+| **Idea Evaluation** | 30-point scoring across 6 dimensions → compare ideas objectively | White paper in `02-评估中/` |
 
-| Method | What it does |
-|--------|-------------|
-| **Combination Innovation** | Pair your method with new technologies or domains |
-| **Fix Weaknesses** | Mine "limitations" sections from papers for unsolved problems |
-| **Transplant Methods** | Import mature theories from other fields |
-| **Theory Deep Dive** | Find unproven properties and relaxed boundary conditions |
-| **Boundary Limits** | Challenge default assumptions in existing research |
-| **Literature Deconstruction** | Extract "Future Work" gaps from top papers |
+### The Key Insight
 
-Each idea gets evaluated on 6 dimensions (novelty, feasibility, verifiability, publishability, fit, urgency) and scored 0-30.
+**You can't know what's new until you know what exists.**
 
-### Quick Start
+The `文献库/` folder builds your novelty baseline. Before generating ideas, the skill scans your literature collection, extracts research directions from each paper, and maps the landscape. This tells you where the gaps are — so every new idea targets unexplored territory.
 
-1. Install the skill in WorkBuddy
-2. Create an `IDEA/` folder in your workspace
-3. Tell WorkBuddy: "Initialize the IDEA folder structure"
-4. Start generating: "Think of new ideas for [your research topic]"
-5. Evaluate: "Evaluate: [idea name]"
+### 6 Brainstorming Methods
+
+| # | Method | Core Question |
+|---|--------|---------------|
+| 1 | **Combination Innovation** | What if I combined my method with [new technology] in [new domain]? |
+| 2 | **Fix Weaknesses** | What problems do survey papers keep mentioning as "limitations"? |
+| 3 | **Transplant Methods** | What mature theory from another field can solve my bottleneck? |
+| 4 | **Theory Deep Dive** | What mathematical properties remain unproven? |
+| 5 | **Boundary Limits** | What if the default assumptions in my field are wrong? |
+| 6 | **Literature Deconstruction** | What "Future Work" gaps did top papers leave unfilled? |
+
+### 6-Dimension Scoring (30 points total)
+
+| Dimension | Question |
+|-----------|----------|
+| Novelty | Has anyone done this before? |
+| Feasibility | Can it actually be built? |
+| Verifiability | Can I prove it works? |
+| Publishability | Will reviewers buy it? |
+| Fit | Does it connect to my existing work? |
+| Urgency | Is someone else about to publish this? |
 
 ### Folder Structure
 
 ```
 IDEA/
-├── 01-灵感收集/          # Idea collection
-│   ├── 索引.md            # Index + novelty map
-│   ├── 想点子指南.md       # How to generate ideas
-│   └── 待评估点子.md       # Raw brainstorming pool
-├── 02-评估中/            # Under evaluation
+├── 01-灵感收集/          # Generate
+│   ├── 索引.md            # Central registry: all ideas + literature novelty map
+│   ├── 想点子指南.md       # Brainstorming methodology (extensible)
+│   └── 待评估点子.md       # Raw idea pool (pre-evaluation)
+├── 02-评估中/            # Evaluate
 │   └── [idea-name]/
 │       └── [evaluation].md
-├── 03-进行中/            # Actively working
-├── 04-已归档/            # Done or abandoned
+├── 03-进行中/            # Execute
+├── 04-已归档/            # Done / abandoned
+├── 05-文献库/            # Literature baseline
+│   └── [paper-title].md  # One file per paper: direction + core idea
 └── README.md
+```
+
+### Quick Start
+
+```bash
+# 1. Install the skill in WorkBuddy
+# 2. Tell WorkBuddy:
+"Initialize the IDEA folder structure"
+
+# 3. Add papers to 05-文献库/ (one .md per paper)
+
+# 4. Re-sync the literature baseline:
+"Sync the literature library to the index"
+
+# 5. Generate ideas:
+"Think of new ideas for [your research topic]"
+
+# 6. Evaluate an idea:
+"Evaluate: [idea name]"
+
+# 7. Compare all ideas:
+"Show me the horizontal comparison of all evaluated ideas"
 ```
 
 ---
 
 ## 中文
 
-### 这是什么？
+### 痛点
 
-一个**系统化生成、评估和管理研究点子**的工作流。作为 WorkBuddy 技能，帮助研究者用结构化方法探索研究方向，而不是等灵感降临。
+多数研究者靠灵感碰撞想点子——随机、低效、容易踩坑：
 
-### 适合谁？
+- **重复造轮子**：花几周研究，发现已被发表
+- **选择偏差**：想到第一个点子就扎进去，没有横向比较
+- **方向盲区**：没人帮你系统地穷举可能性空间
 
-任何领域的研究者，尤其是需要：
-- 系统化生成新颖的研究方向
-- 客观判断点子是否值得推进
-- 跟踪和比较多点子
-- 对照已有文献验证新颖性
+### 解决方案
 
-### 怎么用？
+Research Ideation 提供**三层结构化管线**：
 
-系统提供 **6 种结构化发散方法**：
+| 层 | 做什么 | 核心产物 |
+|----|--------|----------|
+| **文献基线** | 从已读论文中抽取研究方向 → 知道已有啥 | `05-文献库/` + `索引.md` 新颖性地图 |
+| **点子生成** | 6 种结构化发散方法 → 覆盖搜索空间 | `待评估点子.md` |
+| **点子评估** | 6 维度 30 分制评分 → 客观横向比较 | `02-评估中/` 评估白皮书 |
 
-| 方法 | 作用 |
+### 核心洞见
+
+**不知道已有啥，就没法判断啥是新的。**
+
+`文献库/` 文件夹建立你的新颖性基线。每次初始化或同步时，技能会扫描你的文献库，提取每篇论文的研究方向，绘制出领域地图。地图上的空白，就是你该去的地方。
+
+### 6 种发散方法
+
+| # | 方法 | 核心问题 |
+|---|------|----------|
+| 1 | **组合创新** | [你的方法] + [新技术] 在 [新场景] 下会怎样？ |
+| 2 | **补短板** | 综述论文里反复提到的"limitation"是什么？ |
+| 3 | **搬方法** | 别的领域有什么成熟理论能解决你的瓶颈？ |
+| 4 | **理论深挖** | 还有哪些数学性质没被证明？ |
+| 5 | **边界极限法** | 如果领域里的默认假设是错的呢？ |
+| 6 | **文献解构法** | 顶刊论文的 "Future Work" 留了哪些坑？ |
+
+### 6 维度评分（满分 30）
+
+| 维度 | 问题 |
 |------|------|
-| **组合创新** | 你的方法 + 新技术/新场景 |
-| **补短板** | 从论文的"局限性"中挖未解决的问题 |
-| **搬方法** | 从其他领域移植成熟理论 |
-| **理论深挖** | 找未被证明的数学性质 |
-| **边界极限法** | 挑战现有研究的默认假设 |
-| **文献解构法** | 从顶级论文的"Future Work"中挖坑 |
+| 新颖性 | 有人做过吗？ |
+| 可行性 | 能做出来吗？ |
+| 可验证性 | 能证明有效吗？ |
+| 发表性 | 审稿人会买账吗？ |
+| 契合度 | 跟你已有的工作衔接吗？ |
+| 紧迫性 | 别人快发了吗？ |
 
-每个点子按 6 个维度打分（新颖性、可行性、可验证性、发表性、契合度、紧迫性），满分 30。
-
-### 快速开始
-
-1. 在 WorkBuddy 中安装此技能
-2. 在工作区创建 `IDEA/` 文件夹
-3. 告诉 WorkBuddy：「初始化 IDEA 文件夹结构」
-4. 开始发散：「为 [你的研究方向] 想新点子」
-5. 评估点子：「评估：[点子名]」
-
-### 文件结构
+### 文件夹结构
 
 ```
 IDEA/
-├── 01-灵感收集/          # 灵感收集
-│   ├── 索引.md            # 索引 + 新颖性验证
-│   ├── 想点子指南.md       # 想点子方法论
-│   └── 待评估点子.md       # 碎片想法收集池
-├── 02-评估中/            # 评估中
+├── 01-灵感收集/          # 生成
+│   ├── 索引.md            # 中央登记册：所有点子 + 文献新颖性地图
+│   ├── 想点子指南.md       # 发散方法论（可扩展）
+│   └── 待评估点子.md       # 碎片想法收集池（评估前）
+├── 02-评估中/            # 评估
 │   └── [点子名]/
 │       └── [评估白皮书].md
-├── 03-进行中/            # 进行中
-├── 04-已归档/            # 已归档
+├── 03-进行中/            # 执行
+├── 04-已归档/            # 完成 / 放弃
+├── 05-文献库/            # 文献基线
+│   └── [论文名].md        # 一篇论文一个文件：方向 + 核心点子
 └── README.md
+```
+
+### 快速开始
+
+```bash
+# 1. 在 WorkBuddy 中安装技能
+# 2. 告诉 WorkBuddy：
+"初始化 IDEA 文件夹结构"
+
+# 3. 往 05-文献库/ 添加论文（一篇一个 .md）
+
+# 4. 同步文献基线：
+"把文献库同步到索引"
+
+# 5. 想点子：
+"为 [你的研究方向] 想新点子"
+
+# 6. 评估点子：
+"评估：[点子名]"
+
+# 7. 横向比较：
+"给我看所有已评估点子的横向对比"
 ```
 
 ---

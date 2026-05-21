@@ -66,9 +66,11 @@ Use this template when writing an evaluation white paper for a research idea.
 | Paper 1 | Close | [Why it's close but different] |
 | Paper 2 | Medium | [Why it's close but different] |
 
-### 3.3 Knowledge Base Verification
+### 3.3 Knowledge Base / Literature Library Verification
 
-[If the user has a literature collection, document what was found/not found]
+- [ ] Checked `05-文献库/` — found / not found
+- [ ] Checked external knowledge base (if applicable)
+- [ ] Document what was found (even if nothing)
 
 ---
 

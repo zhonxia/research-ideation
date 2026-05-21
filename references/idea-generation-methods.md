@@ -120,9 +120,11 @@ Mine "Future Work" sections from top papers for research directions.
 
 After generating ideas with any method, verify novelty:
 
+- [ ] **Check `05-文献库/` first** — does any literature note already cover this direction?
 - [ ] Web search with 3+ keyword combinations (English + Chinese)
 - [ ] Check recent survey papers (last 2-3 years) for mentions
 - [ ] Check user's knowledge base (if applicable)
 - [ ] Search for adjacent work that partially overlaps
 - [ ] Distinguish "exact match" from "related but different"
 - [ ] Document what you found (even if nothing) in the evaluation
+- [ ] If novel, add to `索引.md` gap list for future reference
