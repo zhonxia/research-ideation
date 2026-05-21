@@ -1,8 +1,9 @@
 # Research Ideation
 
-> An AI agent skill (OpenCode / WorkBuddy) that turns your literature library into a systematic idea engine.
->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/zhonxia/research-ideation/blob/main/LICENSE)
+
 > **Stop waiting for inspiration. Start generating ideas systematically.**
+> 文献库是你的新颖性基线。AI 负责穷举、评分、管理，你只负责判断。
 
 [English](#english) · [中文](#中文)
 
