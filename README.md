@@ -1,10 +1,10 @@
 # Research Ideation
 
-> A WorkBuddy skill for systematic research idea management.
+> An AI agent skill (OpenCode / WorkBuddy) that turns your literature library into a systematic idea engine.
 >
 > **Stop waiting for inspiration. Start generating ideas systematically.**
 
-[English](#english) | [中文](#中文)
+[English](#english) · [中文](#中文)
 
 ---
 
@@ -12,89 +12,105 @@
 
 ### The Problem
 
-Most researchers generate ideas haphazardly — random inspiration, conference hallway conversations, supervisor suggestions. This leads to:
+| How most researchers do it | What goes wrong |
+|---------------------------|-----------------|
+| Random inspiration, hallway chats, advisor says "try this" | **Duplication** — spend weeks, find out it's already published |
+| Jump on the first "interesting" idea | **Selection bias** — no objective comparison |
+| No systematic exploration method | **Blind spots** — miss entire research directions |
 
-- **Duplication**: Spending weeks on an idea only to discover it's already been published
-- **Bias**: Over-investing in the first idea that seems promising without comparing alternatives
-- **Blind spots**: Missing entire research directions because no method exists to systematically explore the space
+### What This Changes
 
-### The Solution
+| Before | After |
+|--------|-------|
+| "I wonder if this is novel...?" | Literature baseline maps what exists → gaps are your targets |
+| "I only have 1-2 ideas" | 6 systematic methods → cover the full possibility space |
+| "Is this idea any good?" | 30-point scoring across 6 dimensions → objective comparison |
+| "Which idea should I work on?" | Lifecycle tracking (待评估→评估中→进行中→已归档) |
 
-Research Ideation provides a **structured pipeline** with three layers:
+### How It Works
 
-| Layer | What it does | Key artifacts |
-|-------|-------------|--------------|
-| **Literature Baseline** | Extract research directions from papers you've read → know what already exists | `05-文献库/` → `索引.md` (novelty map + gap analysis) |
-| **Idea Generation** | 6 systematic brainstorming methods → cover the full search space | `待评估点子.md` → `索引.md` (register as pending) |
-| **Idea Evaluation** | 30-point scoring across 6 dimensions → compare ideas objectively | `02-评估中/` (white paper) → `索引.md` (update status + score) |
-| **Lifecycle Tracking** | Track every idea through 待评估 → 评估中 → 进行中 → 已归档 | `索引.md` (single source of truth) |
+```
+1️⃣  You collect papers → put them in 📚 05-文献库/ (one .md per paper)
 
-### The Key Insight
+2️⃣  AI initializes → reads every paper, extracts research directions
+    ↓
+    📋 索引.md gets populated with: existing directions + gaps (your targets)
 
-**You can't know what's new until you know what exists.**
+3️⃣  Generate ideas (two paths):
+    ┌─────────────────────────────────────────────┐
+    │  A) Ask AI: "Think of new ideas"            │
+    │     → AI uses 想点子指南.md (6 methods)      │
+    │     → writes to 待评估点子.md                │
+    │     → registers in 索引.md (status: 待评估)   │
+    ├─────────────────────────────────────────────┤
+    │  B) Write your own idea directly             │
+    │     → add to 待评估点子.md                   │
+    │     → AI automatically syncs to 索引.md      │
+    └─────────────────────────────────────────────┘
 
-The `文献库/` folder builds your novelty baseline. Before generating ideas, the skill scans your literature collection, extracts research directions from each paper, and maps the landscape. This tells you where the gaps are — so every new idea targets unexplored territory.
+4️⃣  Evaluate: "Evaluate: [idea name]"
+    → AI researches + uses evaluation template
+    → writes white paper in 02-评估中/
+    → updates 索引.md with score (status: 评估中)
+```
+
+**Key insight**: You can't know what's new until you know what exists. The literature library is your novelty baseline — ideas target gaps, not crowded territory.
 
 ### 6 Brainstorming Methods
 
-| # | Method | Core Question |
+| # | Method | Core question |
 |---|--------|---------------|
-| 1 | **Combination Innovation** | What if I combined my method with [new technology] in [new domain]? |
-| 2 | **Fix Weaknesses** | What problems do survey papers keep mentioning as "limitations"? |
-| 3 | **Transplant Methods** | What mature theory from another field can solve my bottleneck? |
+| 1 | **Combination Innovation** | Your method + new tech × new domain? |
+| 2 | **Fix Weaknesses** | What limitations do survey papers repeat? |
+| 3 | **Transplant Methods** | What mature theory from another field fits? |
 | 4 | **Theory Deep Dive** | What mathematical properties remain unproven? |
-| 5 | **Boundary Limits** | What if the default assumptions in my field are wrong? |
-| 6 | **Literature Deconstruction** | What "Future Work" gaps did top papers leave unfilled? |
+| 5 | **Boundary Limits** | What if your field's default assumptions are wrong? |
+| 6 | **Literature Deconstruction** | What "Future Work" gaps did top papers leave? |
 
-### 6-Dimension Scoring (30 points total)
+### Scoring (30 pts)
 
-| Dimension | Question |
-|-----------|----------|
-| Novelty | Has anyone done this before? |
-| Feasibility | Can it actually be built? |
-| Verifiability | Can I prove it works? |
-| Publishability | Will reviewers buy it? |
-| Fit | Does it connect to my existing work? |
-| Urgency | Is someone else about to publish this? |
+| Dimension | Question | Score |
+|-----------|----------|:-----:|
+| Novelty | Has this been done? | 1-5 |
+| Feasibility | Can it be built? | 1-5 |
+| Verifiability | Can results be shown? | 1-5 |
+| Publishability | Will reviewers buy it? | 1-5 |
+| Fit | Connects to your work? | 1-5 |
+| Urgency | Is someone else about to publish? | 1-5 |
 
-### Folder Structure
-
-```
-IDEA/
-├── 01-灵感收集/          # Generate
-│   ├── 索引.md            # Central registry: all ideas (生命周期: 待评估→评估中→进行中→已归档) + literature novelty map
-│   ├── 想点子指南.md       # Brainstorming methodology (extensible)
-│   └── 待评估点子.md       # Raw idea pool (pre-evaluation)
-├── 02-评估中/            # Evaluate
-│   └── [idea-name]/
-│       └── [evaluation].md
-├── 03-进行中/            # Execute
-├── 04-已归档/            # Done / abandoned
-├── 05-文献库/            # Literature baseline
-│   └── [paper-title].md  # One file per paper: direction + core idea
-└── README.md
-```
+> A score of 3.0 means **adequate**, not good. Be honest.
 
 ### Quick Start
 
-```bash
-# 1. Install the skill in WorkBuddy
-# 2. Tell WorkBuddy:
-"Initialize the IDEA folder structure"
+```
+1. Put your collected papers into 📚 05-文献库/ (one .md per paper)
 
-# 3. Add papers to 05-文献库/ (one .md per paper)
+2. Tell your AI: "Initialize the IDEA system"
+   → AI scans your papers, extracts directions, fills 索引.md
 
-# 4. Re-sync the literature baseline:
-"Sync the literature library to the index"
+3. Generate ideas (choose one):
+   a) "Think of new ideas for [your topic]"
+      → AI uses 6 methods from 想点子指南.md
+   b) Write your own idea into 待评估点子.md
+   → Either way, idea gets registered in 索引.md as "待评估"
 
-# 5. Generate ideas:
-"Think of new ideas for [your research topic]"
+4. "Evaluate: [idea name]"
+   → AI researches + uses template → writes white paper → updates 索引.md
+```
 
-# 6. Evaluate an idea:
-"Evaluate: [idea name]"
+### Folder Layout
 
-# 7. Compare all ideas:
-"Show me the horizontal comparison of all evaluated ideas"
+```
+IDEA/
+├── 01-灵感收集/     # Ideas (generate)
+│   ├── 索引.md       # Central register + novelty map
+│   ├── 想点子指南.md  # 6 methods (extensible)
+│   └── 待评估点子.md  # Raw pool
+├── 02-评估中/       # Evaluation white papers
+├── 03-进行中/       # Active projects
+├── 04-已归档/       # Done / abandoned
+├── 05-文献库/       # Literature (novelty baseline)
+└── README.md
 ```
 
 ---
@@ -103,89 +119,65 @@ IDEA/
 
 ### 痛点
 
-多数研究者靠灵感碰撞想点子——随机、低效、容易踩坑：
+| 多数人怎么想点子 | 结果 |
+|-----------------|------|
+| 等灵感、聊闲天、导师说"试试这个" | **重复造轮子** — 查文献发现别人发过了 |
+| 第一个"有意思"的就扎进去 | **选择偏差** — 没有客观比较 |
+| 没有系统探索方法 | **方向盲区** — 整个方向都被错过 |
 
-- **重复造轮子**：花几周研究，发现已被发表
-- **选择偏差**：想到第一个点子就扎进去，没有横向比较
-- **方向盲区**：没人帮你系统地穷举可能性空间
-
-### 解决方案
-
-Research Ideation 提供**三层结构化管线**：
-
-| 层 | 做什么 | 核心产物 |
-|----|--------|----------|
-| **文献基线** | 从已读论文中抽取研究方向 → 知道已有啥 | `05-文献库/` → `索引.md`（新颖性地图 + 空白分析） |
-| **点子生成** | 6 种结构化发散方法 → 覆盖搜索空间 | `待评估点子.md` → `索引.md`（登记为待评估） |
-| **点子评估** | 6 维度 30 分制评分 → 客观横向比较 | `02-评估中/`（白皮书） → `索引.md`（更新评分+状态） |
-| **生命周期追踪** | 追踪每个点子：待评估→评估中→进行中→已归档 | `索引.md`（唯一真相来源） |
-
-### 核心洞见
-
-**不知道已有啥，就没法判断啥是新的。**
-
-`文献库/` 文件夹建立你的新颖性基线。每次初始化或同步时，技能会扫描你的文献库，提取每篇论文的研究方向，绘制出领域地图。地图上的空白，就是你该去的地方。
-
-### 6 种发散方法
-
-| # | 方法 | 核心问题 |
-|---|------|----------|
-| 1 | **组合创新** | [你的方法] + [新技术] 在 [新场景] 下会怎样？ |
-| 2 | **补短板** | 综述论文里反复提到的"limitation"是什么？ |
-| 3 | **搬方法** | 别的领域有什么成熟理论能解决你的瓶颈？ |
-| 4 | **理论深挖** | 还有哪些数学性质没被证明？ |
-| 5 | **边界极限法** | 如果领域里的默认假设是错的呢？ |
-| 6 | **文献解构法** | 顶刊论文的 "Future Work" 留了哪些坑？ |
-
-### 6 维度评分（满分 30）
-
-| 维度 | 问题 |
-|------|------|
-| 新颖性 | 有人做过吗？ |
-| 可行性 | 能做出来吗？ |
-| 可验证性 | 能证明有效吗？ |
-| 发表性 | 审稿人会买账吗？ |
-| 契合度 | 跟你已有的工作衔接吗？ |
-| 紧迫性 | 别人快发了吗？ |
-
-### 文件夹结构
+### 工作流
 
 ```
-IDEA/
-├── 01-灵感收集/          # 生成
-│   ├── 索引.md            # 中央登记册：所有点子（待评估→评估中→进行中→已归档）+ 文献新颖性地图
-│   ├── 想点子指南.md       # 发散方法论（可扩展）
-│   └── 待评估点子.md       # 碎片想法收集池（评估前）
-├── 02-评估中/            # 评估
-│   └── [点子名]/
-│       └── [评估白皮书].md
-├── 03-进行中/            # 执行
-├── 04-已归档/            # 完成 / 放弃
-├── 05-文献库/            # 文献基线
-│   └── [论文名].md        # 一篇论文一个文件：方向 + 核心点子
-└── README.md
+1️⃣  你把自己收集的文献放入 📚 05-文献库/（一篇一个 .md）
+
+2️⃣  AI 初始化 → 逐篇读取，抽取研究方向
+     ↓
+     📋 索引.md 填入：已有方向 + 空白（你的目标区域）
+
+3️⃣  产生点子（两条路）：
+     ┌────────────────────────────────────────────┐
+     │  A) 让 AI 生成："为 [方向] 想新点子"        │
+     │     → AI 按想点子指南.md 的 6 种方法发散     │
+     │     → 写入 待评估点子.md                    │
+     │     → 登记到 索引.md（状态：待评估）          │
+     ├────────────────────────────────────────────┤
+     │  B) 自己写点子                              │
+     │     → 直接写进 待评估点子.md                 │
+     │     → AI 自动同步到 索引.md                 │
+     └────────────────────────────────────────────┘
+
+4️⃣  评估："评估：[点子名]"
+     → AI 调研 + 按评估模板写白皮书
+     → 放入 02-评估中/ 文件夹
+     → 更新 索引.md（状态：评估中，填入评分）
 ```
+
+> **不知道已有啥，就没法判断啥是新的。**
 
 ### 快速开始
 
-```bash
-# 1. 在 WorkBuddy 中安装技能
-# 2. 告诉 WorkBuddy：
-"初始化 IDEA 文件夹结构"
+```
+1. 把你看过的文献放进 📚 05-文献库/（一篇一个 .md）
+2. "初始化 IDEA 系统"
+   → AI 扫描文献，抽取方向，填充 索引.md
+3. 产生点子（二选一）：
+   a) "为 [方向] 想新点子" → AI 用 6 种方法生成
+   b) 自己写点子到 待评估点子.md
+   → 无论哪种，点子都会登记到 索引.md（状态：待评估）
+4. "评估：[点子名]"
+   → AI 调研 + 评估模板 → 白皮书 → 更新 索引.md
+```
 
-# 3. 往 05-文献库/ 添加论文（一篇一个 .md）
+### 结构
 
-# 4. 同步文献基线：
-"把文献库同步到索引"
-
-# 5. 想点子：
-"为 [你的研究方向] 想新点子"
-
-# 6. 评估点子：
-"评估：[点子名]"
-
-# 7. 横向比较：
-"给我看所有已评估点子的横向对比"
+```
+IDEA/
+├── 01-灵感收集/     生成 → 索引.md 登记（待评估）
+├── 02-评估中/       评估 → 索引.md 更新（评分 + 进行中）
+├── 03-进行中/       执行
+├── 04-已归档/       完成 / 放弃
+├── 05-文献库/       文献基线（新颖性依据）
+└── README.md
 ```
 
 ---
