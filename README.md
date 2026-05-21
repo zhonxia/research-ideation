@@ -1,4 +1,4 @@
-# Idea Lab
+# Research Ideation
 
 [English](#english) | [中文](#中文)
 
@@ -12,7 +12,7 @@ A structured system for **generating, evaluating, and managing research ideas**.
 
 ### Who is it for?
 
-Researchers in AI/ML, data science, engineering, or any field where you need to:
+Researchers in any academic field who need to:
 - Generate novel research directions
 - Evaluate whether an idea is worth pursuing
 - Track and compare multiple ideas
@@ -67,9 +67,9 @@ IDEA/
 
 ### 适合谁？
 
-AI/ML、数据科学、工程等领域的研究者，尤其是需要：
+任何领域的研究者，尤其是需要：
 - 系统化生成新颖的研究方向
-- 客观点子是否值得推进
+- 客观判断点子是否值得推进
 - 跟踪和比较多点子
 - 对照已有文献验证新颖性
 

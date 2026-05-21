@@ -1,12 +1,12 @@
 ---
-name: idea-lab
-description: "Research idea management and evaluation system for academic researchers. Provides a structured workflow with 6 idea generation methods, novelty verification against literature, and a standardized evaluation framework. Trigger on: brainstorming research ideas, evaluating research directions, checking novelty, managing idea pipelines, or comparing research proposals. Especially useful for AI/ML, data science, and engineering researchers."
+name: research-ideation
+description: "Systematic research idea generation, evaluation, and management for academic researchers. Provides 6 brainstorming methods, novelty verification against literature, and a standardized 30-point scoring framework. Trigger on: generating research ideas, evaluating research directions, checking novelty, managing an idea pipeline, comparing research proposals, or brainstorming. Use when the user asks about thinking of new research directions, whether an idea is worth pursuing, or needs to systematically generate and assess research ideas."
 agent_created: false
 ---
 
-# Idea Lab — Research Idea Management & Evaluation
+# Research Ideation — Systematic Idea Management & Evaluation
 
-A structured system for generating, evaluating, and managing research ideas. Designed for academic researchers who need to systematically explore research directions rather than relying on ad-hoc inspiration.
+A domain-agnostic system for generating, evaluating, and managing research ideas. Designed for academic researchers in any field who need to systematically explore research directions rather than relying on ad-hoc inspiration.
 
 ## Core Philosophy
 
@@ -69,8 +69,8 @@ When the user asks to "evaluate" or "assess" an idea:
 Before claiming an idea is novel, verify through multiple channels:
 
 1. **Web search** — Use at least 3-5 different keyword combinations
-2. **BRB/ER survey papers** — Check if comprehensive surveys mention the direction
-3. **Knowledge base** — If user has a literature collection, search it
+2. **Survey papers in your field** — Check if comprehensive surveys mention the direction
+3. **Knowledge base / literature collection** — If user has a personal literature collection or knowledge base, search it
 4. **Claim carefully** — If the exact combination hasn't been found, check adjacent work that partially overlaps. Distinguish "no work exists" from "no exact match but related work exists"
 
 ### Phase 4: Refine & Update

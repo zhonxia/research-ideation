@@ -17,8 +17,8 @@ Combine your core research topic with:
 4. Check if the combination has been done before
 
 ### Example
-- "What if I combined BRB with reinforcement learning?" → BRB+RL (novel)
-- "What if I used contrastive learning to learn better BRB rule activations?" → BRB+Contrastive Learning (novel)
+- "What if I combined [my method] with reinforcement learning?" → Novel hybrid approach
+- "What if I used contrastive learning to learn better feature representations for [my method]?" → Representation-enhanced approach
 
 ---
 
@@ -55,11 +55,11 @@ Two directions:
 3. Adapt your method to their problem
 
 ### Examples of transplanted theories
-- Information Bottleneck → Rule compression
-- Optimal Transport → Cross-domain rule transfer
+- Information Bottleneck → Model compression
+- Optimal Transport → Cross-domain adaptation
 - Variational Inference → Posterior uncertainty estimation
-- Information Geometry → Geometric interpretation of ER rules
-- Fisher Information → Measuring rule contribution
+- Information Geometry → Geometric interpretation of learning algorithms
+- Fisher Information → Measuring parameter importance
 
 ---
 
@@ -71,12 +71,9 @@ Two directions:
 - Is there a simpler proof for known results?
 - What happens at the asymptotic limits (n→0, n→∞)?
 - Are there connections to other mathematical frameworks I haven't explored?
-
-### For ER/BRB specifically
-- Does ER combination satisfy the law of large numbers?
-- What are the identifiability conditions for BRB parameters?
-- Is there a non-convex generalization of ER combination?
-- What is the information-geometric interpretation of ER rules?
+- What are the identifiability conditions for my model?
+- Is there a non-convex generalization of my method?
+- Does my method satisfy fundamental statistical laws (e.g., law of large numbers, central limit theorem)?
 
 ---
 
@@ -93,11 +90,11 @@ Challenge the default assumptions in existing research.
 
 | Default Assumption | Reality | New Idea |
 |-------------------|---------|----------|
-| Rules are independent | Rules interact | Rule-level attention mechanism |
-| ER combination is convex | Non-convex fusion possible | Non-convex evidence fusion |
-| Model is discriminative | Could be generative | Generative BRB |
-| Rules are fixed IF-THEN | Rules could be continuous | Differentiable rule structure |
-| Data is perfect | Noisy, missing, uncertain | Robust BRB under data corruption |
+| Components are independent | Components interact | Component-level interaction modeling |
+| Combination is convex | Non-convex fusion possible | Non-convex fusion methods |
+| Model is discriminative | Could be generative | Generative approach to the problem |
+| Model structure is fixed | Structure could be continuous | Differentiable structure learning |
+| Data is perfect | Noisy, missing, uncertain | Robust method under data corruption |
 
 ---
 
