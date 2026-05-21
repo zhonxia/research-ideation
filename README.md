@@ -22,11 +22,12 @@ Most researchers generate ideas haphazardly — random inspiration, conference h
 
 Research Ideation provides a **structured pipeline** with three layers:
 
-| Layer | What it does | Key artifact |
+| Layer | What it does | Key artifacts |
 |-------|-------------|--------------|
-| **Literature Baseline** | Extract research directions from papers you've read → know what already exists | `05-文献库/` + `索引.md` novelty map |
-| **Idea Generation** | 6 systematic brainstorming methods → cover the full search space | `待评估点子.md` |
-| **Idea Evaluation** | 30-point scoring across 6 dimensions → compare ideas objectively | White paper in `02-评估中/` |
+| **Literature Baseline** | Extract research directions from papers you've read → know what already exists | `05-文献库/` → `索引.md` (novelty map + gap analysis) |
+| **Idea Generation** | 6 systematic brainstorming methods → cover the full search space | `待评估点子.md` → `索引.md` (register as pending) |
+| **Idea Evaluation** | 30-point scoring across 6 dimensions → compare ideas objectively | `02-评估中/` (white paper) → `索引.md` (update status + score) |
+| **Lifecycle Tracking** | Track every idea through 待评估 → 评估中 → 进行中 → 已归档 | `索引.md` (single source of truth) |
 
 ### The Key Insight
 
@@ -61,7 +62,7 @@ The `文献库/` folder builds your novelty baseline. Before generating ideas, t
 ```
 IDEA/
 ├── 01-灵感收集/          # Generate
-│   ├── 索引.md            # Central registry: all ideas + literature novelty map
+│   ├── 索引.md            # Central registry: all ideas (生命周期: 待评估→评估中→进行中→已归档) + literature novelty map
 │   ├── 想点子指南.md       # Brainstorming methodology (extensible)
 │   └── 待评估点子.md       # Raw idea pool (pre-evaluation)
 ├── 02-评估中/            # Evaluate
@@ -114,9 +115,10 @@ Research Ideation 提供**三层结构化管线**：
 
 | 层 | 做什么 | 核心产物 |
 |----|--------|----------|
-| **文献基线** | 从已读论文中抽取研究方向 → 知道已有啥 | `05-文献库/` + `索引.md` 新颖性地图 |
-| **点子生成** | 6 种结构化发散方法 → 覆盖搜索空间 | `待评估点子.md` |
-| **点子评估** | 6 维度 30 分制评分 → 客观横向比较 | `02-评估中/` 评估白皮书 |
+| **文献基线** | 从已读论文中抽取研究方向 → 知道已有啥 | `05-文献库/` → `索引.md`（新颖性地图 + 空白分析） |
+| **点子生成** | 6 种结构化发散方法 → 覆盖搜索空间 | `待评估点子.md` → `索引.md`（登记为待评估） |
+| **点子评估** | 6 维度 30 分制评分 → 客观横向比较 | `02-评估中/`（白皮书） → `索引.md`（更新评分+状态） |
+| **生命周期追踪** | 追踪每个点子：待评估→评估中→进行中→已归档 | `索引.md`（唯一真相来源） |
 
 ### 核心洞见
 
@@ -151,7 +153,7 @@ Research Ideation 提供**三层结构化管线**：
 ```
 IDEA/
 ├── 01-灵感收集/          # 生成
-│   ├── 索引.md            # 中央登记册：所有点子 + 文献新颖性地图
+│   ├── 索引.md            # 中央登记册：所有点子（待评估→评估中→进行中→已归档）+ 文献新颖性地图
 │   ├── 想点子指南.md       # 发散方法论（可扩展）
 │   └── 待评估点子.md       # 碎片想法收集池（评估前）
 ├── 02-评估中/            # 评估

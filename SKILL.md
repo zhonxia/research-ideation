@@ -84,6 +84,7 @@ When the user asks to "think of new ideas" or "brainstorm research directions":
 4. Apply each method systematically (see `references/idea-generation-methods.md` for detailed guidance)
 5. Perform novelty verification via web search
 6. Write results to `01-灵感收集/待评估点子.md`
+7. **Register each new idea in `01-灵感收集/索引.md`** with status "待评估" — this prevents duplicate ideas during brainstorming and makes the index the single source of truth for all ideas
 
 ### Phase 2: Evaluate an Idea
 
@@ -97,7 +98,7 @@ When the user asks to "evaluate" or "assess" an idea:
    - Search for direct competitors, adjacent work, and related methods
 3. Write evaluation white paper using template in `references/evaluation-template.md`
 4. Create idea folder in `02-评估中/[idea-name]/`
-5. Update `01-灵感收集/索引.md` with the new entry
+5. Update `01-灵感收集/索引.md` — change status from "待评估" to "评估中", fill in evaluation details (score, verdict)
 6. Update `01-灵感收集/待评估点子.md` to mark the idea as evaluated
 
 ### Phase 3: Novelty Verification
@@ -117,9 +118,22 @@ When the user adds new papers to `05-文献库/`:
 1. Read each new literature note
 2. Extract research direction and core idea
 3. Update the novelty verification section in `索引.md`
-4. Re-check: do any new papers overlap with ideas in `待评估点子.md`?
+4. Re-check: do any new papers overlap with existing ideas in `索引.md` (check against all statuses)?
+5. If overlap found, update the affected idea's entry in `索引.md` with a note about the collision
 
-### Phase 5: Refine & Update
+### Phase 5: Transition Idea Status
+
+When the user says "move [idea] to [new status]" or "I'm starting/abandoning this idea":
+
+1. Identify current idea entry in `索引.md`
+2. Update the status:
+   - `进行中` → moving from `02-评估中/` (evaluation folder) to `03-进行中/` (active)
+   - `已归档` → moving from `03-进行中/` or `02-评估中/` to `04-已归档/`
+3. Move the idea folder to the corresponding directory
+4. Add a brief summary note (e.g., "reason for archiving" if applicable)
+5. Update `索引.md` with the new status
+
+### Phase 6: Refine & Update
 
 When the user says "fix" or "update" an evaluation:
 
@@ -132,7 +146,7 @@ When the user says "fix" or "update" an evaluation:
 
 | File | Role | One-line rule |
 |------|------|---------------|
-| `索引.md` | Index + novelty map | Central registry — all evaluated ideas + literature landscape |
+| `索引.md` | Index + novelty map + lifecycle tracker | Central registry — all ideas (待评估/评估中/进行中/已归档) + literature landscape |
 | `想点子指南.md` | Methodology | How to think of ideas — updated when user teaches new methods |
 | `待评估点子.md` | Idea pool | Raw brainstorming — one line per idea, no structure required |
 | `05-文献库/*.md` | Literature library | One file per paper — building the novelty baseline |
@@ -142,28 +156,29 @@ When the user says "fix" or "update" an evaluation:
 
 ```
 文献库/ (literature library)
-        ↓ scan & classify on init
-索引.md (novelty baseline + gaps)
+        ↓ scan & classify on init / sync
+索引.md (novelty baseline + gaps + idea register)
         ↓ informs
 想点子指南.md (methodology)
         ↓ apply methods
-待评估点子.md (raw pool)
+待评估点子.md (raw pool) ──→ 索引.md (register as pending)
         ↓ research & evaluate
 02-评估中/[idea-name]/ (white paper)
-        ↓ register
-索引.md (add to registry)
+        ↓ update status
+索引.md (待评估 → 评估中, fill score)
 ```
 
 ## Important Rules
 
 1. **Literature first, ideas second** — Always build the novelty baseline before generating ideas
-2. **One idea = one file** — Each evaluated idea gets its own folder and white paper
+2. **One evaluated idea = one folder** — Each evaluated idea gets its own folder and white paper in `02-评估中/`
 3. **One paper = one file** — Each paper in `05-文献库/` gets its own note
 4. **Novelty requires proof** — Never claim "this is novel" without searching at least 3 keyword combinations
 5. **Score honestly** — A score of 3.0 means "adequate", not "good". Don't inflate
-6. **Update the index** — Every new idea and every new literature note must be reflected in `索引.md`
-7. **Track competitors** — If related work exists, document it explicitly. Don't pretend it doesn't
-8. **Keep literature notes concise** — One file per paper, focus on direction + core idea (not full summary)
+6. **Index is the single source of truth** — Every idea (pending or evaluated) and every literature note must be registered in `索引.md`. Ideas enter the index at generation time (status: 待评估), not just after evaluation
+7. **Idea lifecycle** — Ideas flow through statuses: 待评估 → 评估中 → 进行中 → 已归档. Update `索引.md` at every transition
+8. **Track competitors** — If related work exists, document it explicitly. Don't pretend it doesn't
+9. **Keep literature notes concise** — One file per paper, focus on direction + core idea (not full summary)
 
 ## Evaluation White Paper Structure
 
