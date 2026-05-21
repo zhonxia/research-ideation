@@ -1,0 +1,14 @@
+# .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# WorkBuddy internal
+.workbuddy/
