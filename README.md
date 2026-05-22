@@ -45,7 +45,9 @@
 ### How It Works
 
 ```
-1️⃣  You collect papers → put them in 📚 05-文献库/ (one .md per paper)
+1️⃣  Gather papers (two sources):
+    A) Your own collection → put them in 📚 05-文献库/ (one .md per paper)
+    B) AI searches the web → finds & summarizes papers → adds to 05-文献库/
 
 2️⃣  AI initializes → reads every paper, extracts research directions
     ↓
@@ -99,9 +101,9 @@
 
 | Step | What to do | Say / Action |
 |------|-----------|--------------|
-| 1 | Drop papers into 📚 05-文献库/ | Manually, one .md per paper |
+| 1 | Gather papers into 📚 05-文献库/ | Manually add yours / ask AI to search the web |
 | 2 | AI scans papers, fills index | "Initialize the IDEA system" |
-| 3 | Generate ideas (two paths) | "Think of new ideas for [topic]" / Write into 待评估点子.md |
+| 3 | Generate ideas (two paths) | "Think of new ideas for [topic]" / "Search papers about [topic] for me" / Write into 待评估点子.md |
 | 4 | Evaluate an idea | "Evaluate: [idea name]" |
 | 5 | Track progress | Auto-updated in 索引.md |
 
@@ -124,8 +126,7 @@ Then load it in conversation: the agent will discover it automatically when you 
 This skill does **not**:
 - ~~Write your paper or do experiments for you~~
 - ~~Guarantee that a scored idea will get published~~
-- ~~Replace deep domain expertise — the quality of ideas depends on the papers you feed in~~
-- ~~Work without a literature library — you must provide the baseline~~
+- ~~Replace deep domain expertise — the quality of ideas depends on the sources you (or AI) feed in~~
 
 ### Folder Layout
 
@@ -138,7 +139,7 @@ IDEA/
 ├── 02-评估中/       # Evaluation white papers
 ├── 03-进行中/       # Active projects
 ├── 04-已归档/       # Done / abandoned
-├── 05-文献库/       # Literature (novelty baseline)
+├── 05-文献库/       # Literature (yours + AI-searched, novelty baseline)
 └── README.md
 ```
 
@@ -185,7 +186,7 @@ IDEA/
 
 | 步骤 | 操作 | 输入 |
 |------|------|------|
-| 1 | 把文献放进 📚 05-文献库/ | 手动放，一篇一个 .md |
+| 1 | 收集文献到 📚 05-文献库/ | 自己放 / 让 AI 联网搜索 |
 | 2 | AI 扫描文献，填充索引 | "初始化 IDEA 系统" |
 | 3 | 产生点子（二选一） | "为 [方向] 想新点子" / 自己写到 待评估点子.md |
 | 4 | 评估点子 | "评估：[点子名]" |
@@ -213,7 +214,7 @@ IDEA/
 ├── 02-评估中/       评估 → 索引.md 更新（评分 + 进行中）
 ├── 03-进行中/       执行
 ├── 04-已归档/       完成 / 放弃
-├── 05-文献库/       文献基线（新颖性依据）
+├── 05-文献库/       文献基线（你放 + AI 搜索，新颖性依据）
 └── README.md
 ```
 
@@ -223,7 +224,6 @@ IDEA/
 - ~~替你写论文或做实验~~
 - ~~保证高分点子一定能发表~~
 - ~~替代你的专业判断——点子质量取决于你喂进去的文献~~
-- ~~在没有文献库的情况下工作——你必须先提供基线~~
 
 ---
 
