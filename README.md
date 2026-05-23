@@ -99,13 +99,43 @@
 
 ### Quick Start
 
-| Step | What to do | Say / Action |
-|------|-----------|--------------|
-| 1 | Gather papers into 📚 05-文献库/ | Manually add yours / ask AI to search the web |
-| 2 | AI scans papers, fills index | "Initialize the IDEA system" |
-| 3 | Generate ideas (two paths) | "Think of new ideas for [topic]" / "Search papers about [topic] for me" / Write into 待评估点子.md |
-| 4 | Evaluate an idea | "Evaluate: [idea name]" |
-| 5 | Track progress | Auto-updated in 索引.md |
+Two paths. From zero to your first scored idea in 3 steps.
+
+---
+
+#### Path A — You have a research direction, no papers collected (recommended)
+
+```
+Step 1: "Initialize the IDEA system for [your topic]"
+
+→ AI automatically:
+   · Creates folder structure
+   · Searches relevant papers (ArXiv + web)
+   · Writes paper notes into 05-文献库/
+   · Scans library and populates 索引.md with novelty map
+   · Shows you: existing directions + gaps
+
+Step 2: "Think of new ideas for [topic]"
+
+→ AI uses 6 methods, writes to 待评估点子.md
+→ Auto-registers in 索引.md (status: 待评估)
+
+Step 3: "Evaluate: [idea name]"
+
+→ AI researches + writes white paper
+→ Saves to 02-评估中/ + updates 索引.md (status: 评估中, with score)
+```
+
+> From zero to your first scored idea in **3 commands**.
+
+#### Path B — You already have papers collected
+
+```
+1. Put paper notes into 05-文献库/ (one .md per paper)
+2. "Initialize the IDEA system"
+3. "Think of new ideas for [topic]"
+4. "Evaluate: [idea name]"
+```
 
 ### Installation
 
@@ -182,15 +212,45 @@ IDEA/
 - ✅ **决策面板** — 索引.md 一眼看清所有点子及其状态和分数
 - ✅ **完整管线** — 从文献 → 生成 → 评估 → 项目 → 归档
 
-### 快速开始
+### 快速入门
 
-| 步骤 | 操作 | 输入 |
-|------|------|------|
-| 1 | 收集文献到 📚 05-文献库/ | 自己放 / 让 AI 联网搜索 |
-| 2 | AI 扫描文献，填充索引 | "初始化 IDEA 系统" |
-| 3 | 产生点子（二选一） | "为 [方向] 想新点子" / 自己写到 待评估点子.md |
-| 4 | 评估点子 | "评估：[点子名]" |
-| 5 | 追踪进度 | 自动更新 索引.md 状态 |
+两条路。从零到第一个评分点子，3 步搞定。
+
+---
+
+#### Path A — 有研究方向，没有收集的论文（推荐）
+
+```
+第 1 步："为 [方向] 初始化 IDEA 系统"
+
+→ AI 会自动：
+   · 创建文件夹结构
+   · 联网搜索相关论文（ArXiv + web）
+   · 每篇写成笔记放入 05-文献库/
+   · 扫描文献库，填充 索引.md 的新颖性地图
+   · 返回：已有方向一览 + 空白区域
+
+第 2 步："为 [方向] 想新点子"
+
+→ AI 按 6 种方法发散，写进 待评估点子.md
+→ 自动登记到 索引.md（状态：待评估）
+
+第 3 步："评估：[点子名]"
+
+→ AI 调研 + 按模板写白皮书
+→ 放入 02-评估中/ + 更新 索引.md（状态：评估中，给分）
+```
+
+> 从零到拿到第一个评分点子，**3 句话搞定**。
+
+#### Path B — 已经收集了论文
+
+```
+1. 把论文笔记放进 05-文献库/（一篇一个 .md）
+2. "初始化 IDEA 系统"
+3. "为 [方向] 想新点子"
+4. "评估：[点子名]"
+```
 
 ### 安装
 
