@@ -30,7 +30,7 @@
 | Traditional | → | This Skill |
 |------------|---|------------|
 | "Is this novel? Not sure..." | → | Literature scan reveals what exists + where the gaps are |
-| "I only have 1-2 ideas" | → | 6 methods generate diverse candidates, scored objectively |
+| "I only have 1-2 ideas" | → | 7 methods generate diverse candidates, scored objectively |
 | "This one feels right, let's go" | → | Compare all candidates, pick the highest score |
 | "What happened to that idea from last year?" | → | Index tracks full lifecycle: 待评估→评估中→进行中→已归档 |
 
@@ -56,7 +56,7 @@
 3️⃣  Generate ideas (two paths):
     ┌─────────────────────────────────────────────┐
     │  A) Ask AI: "Think of new ideas"            │
-    │     → AI uses 想点子指南.md (6 methods)      │
+    │     → AI uses 想点子指南.md (7 methods)      │
     │     → writes to 待评估点子.md                │
     │     → registers in 索引.md (status: 待评估)   │
     ├─────────────────────────────────────────────┤
@@ -83,6 +83,7 @@
 | 4 | **Theory Deep Dive** | What mathematical properties remain unproven? |
 | 5 | **Boundary Limits** | What if your field's default assumptions are wrong? |
 | 6 | **Literature Deconstruction** | What "Future Work" gaps did top papers leave? |
+| 7 | **Reverse-Engineering** | What gap does your path *force* you through to reach a concrete goal? |
 
 ### Scoring (30 pts)
 
@@ -189,7 +190,7 @@ IDEA/
 |------|------|---------------|
 | 等灵感、聊闲天、导师说"试试这个" | **重复造轮子** — 查文献发现别人发过了 | 📚 文献库自动扫描 → 索引标出已有方向，撞没撞车一眼知道 |
 | 第一个"有意思"的就扎进去 | **选择偏差** — 没有客观比较 | 📊 6 维度 30 分评分 → 所有点子横向对比，数据说了算 |
-| 没有系统探索方法 | **方向盲区** — 整个方向都被错过 | 💡 6 种结构化发散方法 → 穷举可能性空间，空白就是目标 |
+| 没有系统探索方法 | **方向盲区** — 整个方向都被错过 | 💡 7 种结构化发散方法 → 穷举可能性空间，空白就是目标 |
 
 ### 传统方式 vs 本技能
 
@@ -207,7 +208,7 @@ IDEA/
 ### 你能得到什么
 
 - ✅ **新颖性地图** — 文献库变成可视化的空白分析报告
-- ✅ **候选点子池** — 6 种方法发散生成，自动入索引（状态：待评估）
+- ✅ **候选点子池** — 7 种方法发散生成，自动入索引（状态：待评估）
 - ✅ **评估白皮书** — 每个点子按 6 维度评分（满分 30），横向可比较
 - ✅ **决策面板** — 索引.md 一眼看清所有点子及其状态和分数
 - ✅ **完整管线** — 从文献 → 生成 → 评估 → 项目 → 归档
@@ -232,7 +233,7 @@ IDEA/
 
 第 2 步："为 [方向] 想新点子"
 
-→ AI 按 6 种方法发散，写进 待评估点子.md
+→ AI 按 7 种方法发散，写进 待评估点子.md
 → 自动登记到 索引.md（状态：待评估）
 
 第 3 步："评估：[点子名]"
