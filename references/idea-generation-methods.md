@@ -116,6 +116,52 @@ Mine "Future Work" sections from top papers for research directions.
 
 ---
 
+## Method 7: Reverse-Engineering Research (反向推导研究法)
+
+> **Core insight (preserved verbatim)**
+>
+> Originality does not come from "having a goal first." It comes from:
+> **In pursuing your goal, you are forced to enter territory others have not yet explored — or not explored sufficiently.**
+> That is the most valuable thing about reverse-engineering research.
+
+### The Method
+
+Start not from a research gap, but from a **concrete goal you need to achieve** — a system you want to build, a problem you want to solve, a performance bar you want to hit.
+
+Then ask: "What theoretical foundations, algorithmic primitives, or data structures do I NEED to exist in order to reach this goal?"
+
+If those foundations don't exist (or don't exist in sufficient form), **that's your research contribution** — not invented to be novel, but necessary to fulfill a real purpose.
+
+### Four Steps
+
+1. **Define a concrete goal** — not a research direction, but a real, verifiable outcome
+2. **Decompose backwards** — list every existing result your goal depends on; where does the chain break?
+3. **Validate necessity** — can you reach the goal without filling this gap? Yes → engineering; No → contribution
+4. **Write the motivation** — "To achieve X, this gap *must* be filled; existing methods cannot do it"
+
+### Examples
+
+| Concrete Goal | Gap (chain breaks here) | Contribution |
+|---------------|------------------------|--------------|
+| Prove BRB convergence under ρ-mixing samples | No sample-complexity bound for belief updates under mixing coefficients | ρ-mixing convergence theorem for BRB |
+| Train BRB in federated private-data settings | No distributed update rule compatible with BRB's non-linear activation | Federated BRB optimization theory |
+| Keep ER fusion calibrated under adversarial weight perturbation | No perturbation bound on belief combination under adversarial weight shifts | Robustness theory for ER evidence weights |
+
+### Why this generates original ideas
+
+- **Necessity-driven novelty**: You enter unexplored territory because your path *runs through* it — reviewers feel the inevitability
+- **Motivation is self-justifying**: The contribution is forced by the goal, not assembled to look novel
+- **Paper cohesion**: Every component traces back to one goal; no "we also tried X" digressions
+- **Immune to "why not use Y"**: If Y cannot achieve your stated goal, the objection collapses
+
+### Common mistakes
+
+- **Goal too vague** ("make BRB better") → decomposition won't terminate at a specific gap
+- **Goal achievable with existing tools** → no genuine gap emerges; only engineering work remains
+- **Goal fabricated retroactively** → method fails; reviewers can tell
+
+---
+
 ## Novelty Verification Checklist
 
 After generating ideas with any method, verify novelty:

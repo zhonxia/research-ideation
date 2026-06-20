@@ -1,6 +1,6 @@
 ---
 name: research-ideation
-description: "Systematic research idea generation, evaluation, and management for academic researchers. Provides 6 brainstorming methods, novelty verification against literature, and a standardized 30-point scoring framework. Trigger on: generating research ideas, evaluating research directions, checking novelty, managing an idea pipeline, comparing research proposals, or brainstorming. Use when the user asks about thinking of new research directions, whether an idea is worth pursuing, or needs to systematically generate and assess research ideas."
+description: "Systematic research idea generation, evaluation, and management for academic researchers. Provides 7 brainstorming methods (including reverse-engineering research), novelty verification against literature, and a standardized 30-point scoring framework. Trigger on: generating research ideas, evaluating research directions, checking novelty, managing an idea pipeline, comparing research proposals, or brainstorming. Use when the user asks about thinking of new research directions, whether an idea is worth pursuing, or needs to systematically generate and assess research ideas."
 ---
 
 # Research Ideation — Systematic Idea Management & Evaluation
@@ -81,6 +81,8 @@ When the user asks to "think of new ideas" or "brainstorm research directions":
 2. Read `01-灵感收集/索引.md` — understand what already exists (novelty baseline)
 3. **Check the literature gaps** — the gaps identified in the index are priority targets
 4. Apply each method systematically (see `references/idea-generation-methods.md` for detailed guidance)
+   - Methods 1–6: diverge outward from existing literature
+   - **Method 7 (Reverse-Engineering)**: start from a concrete goal, decompose backwards until you hit a gap the literature cannot fill — that gap is your contribution
 5. Perform novelty verification via web search
 6. Write results to `01-灵感收集/待评估点子.md`
 7. **Register each new idea in `01-灵感收集/索引.md`** with status "待评估" — this prevents duplicate ideas during brainstorming and makes the index the single source of truth for all ideas
