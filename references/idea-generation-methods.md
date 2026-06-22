@@ -172,5 +172,17 @@ After generating ideas with any method, verify novelty:
 - [ ] Check user's knowledge base (if applicable)
 - [ ] Search for adjacent work that partially overlaps
 - [ ] Distinguish "exact match" from "related but different"
-- [ ] Document what you found (even if nothing) in the evaluation
+- [ ] Record every check in `01-灵感收集/evidence-log.md` with date, query/source, key results, conclusion, and confidence
+- [ ] Copy relevant evidence rows into the evaluation white paper's embedded Search Log
+- [ ] Link each novelty claim to one or more evidence rows
 - [ ] If novel, add to `索引.md` gap list for future reference
+
+## Evidence Log Standard
+
+Every novelty claim must be backed by a row in the evidence log. Use this row format:
+
+| Date | Idea | Claim | Query / Source | Channel | Key Results | Conclusion | Confidence | Notes |
+|------|------|-------|----------------|---------|-------------|------------|:----------:|-------|
+| YYYY-MM-DD | [Idea] | [Narrow claim] | [Query/source] | Web / `05-文献库` / survey / knowledge base | [Specific findings] | Exact match / partial overlap / adjacent only / no close match | 0.0-1.0 | [Caveats] |
+
+Do not write "confirmed novel" unless the evidence is broad and strong. Prefer: "No exact match found in the searched sources as of YYYY-MM-DD."

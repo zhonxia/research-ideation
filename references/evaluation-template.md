@@ -24,14 +24,21 @@ Use this template when writing an evaluation white paper for a research idea.
 
 **Score**: **XX.X / 30**
 
-| Dimension | Score | Notes |
-|-----------|:-----:|-------|
-| Novelty | X.X | |
-| Technical Feasibility | X.X | |
-| Experimental Verifiability | X.X | |
-| Publication Feasibility | X.X | |
-| Fit with Current Research | X.X | |
-| Urgency | X.X | |
+| Dimension | Score | One-sentence reason |
+|-----------|:-----:|---------------------|
+| Novelty | X.X | [Why this score? Mention the strongest evidence or uncertainty.] |
+| Technical Feasibility | X.X | [Why this score? Name the key implementation blocker or enabler.] |
+| Experimental Verifiability | X.X | [Why this score? Mention benchmarks, data, metrics, or missing validation path.] |
+| Publication Feasibility | X.X | [Why this score? Mention venue fit, story strength, or reviewer risk.] |
+| Fit with Current Research | X.X | [Why this score? Mention overlap with current work, data, or methods.] |
+| Urgency | X.X | [Why this score? Mention competitive pressure or lack of rush.] |
+
+Example:
+
+| Dimension | Score | One-sentence reason |
+|-----------|:-----:|---------------------|
+| Novelty | 4.0 | Searched Semantic Scholar and Google Scholar; no direct combination found, but adjacent work exists. |
+| Technical Feasibility | 3.0 | The method is plausible, but access to the required molecular dataset is uncertain. |
 
 ---
 
@@ -76,18 +83,33 @@ Use this template when writing an evaluation white paper for a research idea.
 
 ## 4. Novelty Verification
 
+### Novelty Claims
+
+Each claim below must be supported by one or more rows in the Search Log. Use narrow wording and avoid absolute claims unless the evidence is unusually strong.
+
+| Claim ID | Novelty Claim | Evidence Rows | Confidence | Allowed Wording |
+|----------|---------------|---------------|:----------:|-----------------|
+| C1 | [Exact claim being made] | E1, E2, E3 | 0.75 | [No exact match found in searched sources as of YYYY-MM-DD] |
+
 ### Search Log
 
-| Query | Results | Verdict |
-|-------|---------|---------|
-| "keyword1" "keyword2" | X results | [Novel/Collision] |
-| "keyword3" "keyword4" | X results | [Novel/Collision] |
+Every row must also be appended to `01-灵感收集/evidence-log.md` so the central evidence history stays complete.
+
+| Row ID | Date | Query / Source | Channel | Key Results | Conclusion | Confidence | Supports Claim | Notes |
+|--------|------|----------------|---------|-------------|------------|:----------:|----------------|-------|
+| E1 | YYYY-MM-DD | `"keyword1" "keyword2"` | Web | [Top papers / no exact match / related work] | [Exact match / partial overlap / adjacent only / no close match] | 0.70 | C1 | [Caveats, missing databases] |
+| E2 | YYYY-MM-DD | `05-文献库/` scan | Literature library | [Relevant notes found / none found] | [Conclusion] | 0.80 | C1 | [Scope of local library] |
+| E3 | YYYY-MM-DD | [Survey paper title, year] | Survey | [What the survey covers or misses] | [Conclusion] | 0.75 | C1 | [Limitations] |
 
 ### Verdict
 
 - [ ] Exact combination has been done before
 - [ ] Partial overlap with existing work (specify)
-- [x] Confirmed novel (no direct or close competitors)
+- [ ] No exact match found in searched sources as of YYYY-MM-DD
+
+**Careful novelty statement**: [State exactly what can be claimed based on the evidence above. Prefer "no exact match found in searched sources" over "no one has done this."]
+
+**Residual uncertainty**: [What sources, databases, venues, languages, or keywords still need checking?]
 
 ---
 
@@ -180,6 +202,8 @@ Use this template when writing an evaluation white paper for a research idea.
 - 3.0: Some adjacent work exists, differentiation needed
 - 2.0: Significant competition, must find unique angle
 - 1.0: Already well-studied
+
+Novelty score must have a one-sentence reason that points to the strongest Search Log evidence or the main uncertainty.
 
 ### Technical Feasibility (技术可行性)
 - 5.0: Clear technical path, known building blocks
