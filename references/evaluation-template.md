@@ -240,25 +240,6 @@ Novelty score must have a one-sentence reason that points to the strongest Searc
 - 2.0: Low competition, can take time
 - 1.0: No rush, niche topic
 
-### Storytelling in Research — Why Framing Matters (讲故事的重要性)
+---
 
-#### Reviewer Psychology (审稿人心理)
-
-A reviewer reads 5–10 papers per submission cycle. Their first impression forms in ~2 minutes after reading the title and abstract. Technical novelty alone won't save a poorly framed paper — but a well-framed story can elevate solid-but-not-groundbreaking work.
-
-Key insight: **"Novelty" is partly about framing.** The same result can sound like an incremental improvement or a significant advance, depending on how you define the contribution. The `Publication Feasibility` score should reflect not just whether the topic is hot, but whether the idea *can be told as a compelling story*.
-
-#### Four Narrative Frameworks (四种叙事框架)
-
-| Framework | Structure | Best For |
-|-----------|-----------|----------|
-| **Problem → Solution → Impact** | State the problem → propose your solution → show the impact | Most papers (safe, clear, universal) |
-| **Before → Gap → Bridge** | How things are done now → what's missing → how we bridge it | Method improvement, incremental but solid work |
-| **Surprise → Investigation → Discovery** | Start with a counterintuitive observation → dig deeper → reveal the mechanism | Analytical/theoretical papers |
-| **Claim → Defense → Evidence** | Make a bold claim → explain why it's plausible → prove it with experiments | High-risk, high-reward ideas |
-
-#### The One-Sentence Test (一句话测试)
-
-After writing the paper, try to summarize it in one sentence. If that sentence doesn't make your advisor lean in, the reviewer won't either.
-
-> **Pro tip**: Before you even start the evaluation, ask yourself: "If I had only 30 seconds to pitch this idea at a conference dinner, what would I say?" The answer is your story core. Everything in the white paper should serve that core.
+> 💡 **Storytelling matters**: How you frame an idea can be as important as the idea itself. See [`references/story-framing.md`](story-framing.md) for reviewer psychology, four narrative frameworks, and the one-sentence test — use these to strengthen the `Publication Feasibility` score and the overall white paper narrative.

@@ -273,6 +273,8 @@ Total = sum of all 6 dimensions (max 30).
 
 Each dimension must include a one-sentence reason after the score. Keep it lightweight: the goal is to remember why the score was assigned three months later, not to create another audit system.
 
+> 💡 **Storytelling matters**: How you frame an idea can be as important as the idea itself. See `references/story-framing.md` for reviewer psychology, four narrative frameworks, and the one-sentence test — use these to strengthen the `Publication Feasibility` score and the overall white paper narrative.
+
 Example:
 
 ```markdown
