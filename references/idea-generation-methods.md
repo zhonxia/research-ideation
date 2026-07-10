@@ -1,6 +1,6 @@
 # Idea Generation Methods
 
-Use these seven methods to create candidates. Generation produces hypotheses and contribution sketches, not novelty claims.
+Use these eleven methods to create candidates. Generation produces hypotheses and contribution sketches, not novelty claims.
 
 ## Contents
 
@@ -11,7 +11,12 @@ Use these seven methods to create candidates. Generation produces hypotheses and
 5. Boundary and assumption challenge
 6. Citation-chain gap mining
 7. Goal-driven reverse engineering
-8. Screening and deduplication
+8. Contradiction mapping
+9. Counterexample-first research
+10. Measurement-first research
+11. Regime and phase mapping
+12. Method selection
+13. Screening and deduplication
 
 ## 1. Combination Innovation
 
@@ -97,6 +102,90 @@ Start from a concrete, verifiable outcome and decompose backward:
 6. Test feasibility: why might the missing result be absent?
 
 Output: goal, broken dependency, necessity argument, generalizable contribution, and cheapest invalidating probe.
+
+## 8. Contradiction Mapping
+
+Start when credible studies, definitions, theories, or experiments appear to support incompatible conclusions.
+
+1. Express each result as `claim | conditions | construct definition | data | method | metric`.
+2. Normalize terminology and determine whether both studies measured the same construct.
+3. Separate genuine contradiction from differences in population, assumptions, preprocessing, optimization, or evaluation.
+4. Propose the smallest moderator or boundary condition that could explain both results.
+5. Design a discriminating study in which the competing explanations make different predictions.
+
+If normalization removes the contradiction, downgrade the candidate from a new mechanism to a synthesis, benchmark, or reporting-standard contribution.
+
+Output: contradiction matrix, candidate moderator, unifying hypothesis, and discriminating test.
+
+BRB/ER example: two weighting or reliability methods reverse their ranking under different conflict levels. Map the hidden conditions and test whether evidence dependence explains the reversal.
+
+## 9. Counterexample-First Research
+
+Start from a property that is assumed, informally claimed, or proved only under narrow conditions.
+
+1. State the property as a falsifiable proposition.
+2. Define the smallest valid instance: fewest rules, attributes, states, or evidence sources.
+3. Search systematically using enumeration, symbolic solving, adversarial optimization, or property-based testing.
+4. Minimize any counterexample so the failure mechanism is interpretable.
+5. Infer the missing condition, revise the conjecture, or design a repair.
+6. Re-run the search against the revised claim.
+
+This differs from boundary and assumption challenge: it begins with an executable falsification artifact rather than an assumption list.
+
+Output: minimal counterexample or bounded negative search, failure mechanism, revised proposition, and repair test.
+
+BRB/ER example: find the smallest rule base in which locally monotone rules produce a non-monotone aggregate, then derive sufficient conditions for global monotonicity.
+
+## 10. Measurement-First Research
+
+Start when progress is limited by an ambiguous construct, weak proxy, unstable metric, or benchmark that rewards the wrong behavior.
+
+1. Define the target construct and the decision it is meant to support.
+2. Audit existing proxies for content, construct, criterion, and ecological validity.
+3. Identify known-groups, adversarial, invariance, and test-retest checks the measure should pass.
+4. Design the smallest new metric, instrument, benchmark, or annotation protocol that closes the validity gap.
+5. Test whether conclusions or model rankings change under the improved measure.
+
+Do not create a new metric merely because it correlates with a preferred method. Require a validation argument independent of the proposed model.
+
+Output: construct definition, validity threats, measurement design, validation protocol, and consequence for prior conclusions.
+
+BRB/ER example: replace parameter-count or rule-readable proxies for interpretability with a human comprehension and decision-calibration instrument.
+
+## 11. Regime And Phase Mapping
+
+Start when a method may behave qualitatively differently across scale, noise, dependence, sparsity, conflict, or resource conditions.
+
+1. Select two to four theoretically meaningful axes and define their ranges.
+2. Build a factorial, logarithmic, or adaptive grid over the regimes.
+3. Measure not only average performance but stability, calibration, computation, failure probability, and structural behavior.
+4. Locate crossovers, discontinuities, collapse regions, or changes in the best method.
+5. Form a mechanism-level hypothesis for each boundary and test it on held-out regimes.
+6. Derive a scaling law, boundary theorem, or method-selection rule when evidence supports it.
+
+Use `phase transition` only when discontinuous or critical behavior is demonstrated. Otherwise call the result a regime map or crossover analysis.
+
+Output: regime map, critical boundaries, explanatory hypothesis, and method-selection rule.
+
+BRB/ER example: map rule count, evidence dependence, and weight perturbation to identify where ER calibration collapses and which robust variant dominates.
+
+## Method Selection
+
+| Available signal | Prefer |
+|---|---|
+| New technology, theory, data regime, or domain | Combination innovation |
+| Repeated practical or empirical weakness | Weakness triangulation |
+| Mature construct in another field | Method transplantation |
+| Missing mathematical foundation | Theory deep dive |
+| Unrealistic default assumption | Boundary and assumption challenge |
+| Explicit unresolved statement with a citation history | Citation-chain gap mining |
+| Concrete outcome blocked by missing knowledge | Goal-driven reverse engineering |
+| Credible results that cannot all be true under one model | Contradiction mapping |
+| Accepted property that may fail on a small instance | Counterexample-first research |
+| Weak construct, proxy, metric, or benchmark | Measurement-first research |
+| Behavior changes across scale or operating conditions | Regime and phase mapping |
+
+Use more than one method only when each contributes a different artifact. Do not relabel one candidate eleven times.
 
 ## Screening And Deduplication
 

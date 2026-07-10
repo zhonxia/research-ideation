@@ -174,6 +174,20 @@ score_version: v2
         self.assertNotIn("research-ideation/README.md", members)
         self.assertFalse(any(name.startswith("research-ideation/tests/") for name in members))
 
+    def test_generation_method_catalog_is_consistent(self) -> None:
+        skill_root = Path(__file__).resolve().parents[1]
+        methods = (skill_root / "references" / "idea-generation-methods.md").read_text(encoding="utf-8")
+        guide = (skill_root / "assets" / "想点子指南.md").read_text(encoding="utf-8")
+        inbox = (skill_root / "assets" / "待评估点子.md").read_text(encoding="utf-8")
+        readme = (skill_root / "README.md").read_text(encoding="utf-8")
+
+        self.assertIn("eleven methods", methods)
+        for number in range(1, 12):
+            self.assertIn(f"## {number}.", methods)
+        self.assertIn("十一种生成方法", guide)
+        self.assertIn("1-11 / 用户输入", inbox)
+        self.assertIn("### Eleven generation methods", readme)
+
 
 if __name__ == "__main__":
     unittest.main()

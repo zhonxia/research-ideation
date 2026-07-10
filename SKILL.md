@@ -64,11 +64,12 @@ When brainstorming:
 
 1. Read the user's research context, the registry, and relevant literature notes.
 2. Read [references/idea-generation-methods.md](references/idea-generation-methods.md).
-3. Generate diverse candidates without making novelty claims.
-4. Put raw candidates in `待评估点子.md`.
-5. Deduplicate candidates against registry titles, aliases, and related IDs.
-6. Promote worthwhile candidates into the registry with a stable ID and status `初筛`.
-7. Apply the four hard gates in [references/scoring-v2.md](references/scoring-v2.md). Reject or park failed candidates with a reason.
+3. Choose methods from the signal actually available: use contradiction mapping for conflicting findings, counterexample-first for accepted properties, measurement-first for weak constructs or metrics, and regime mapping for behavior that changes across conditions.
+4. Generate diverse candidates without making novelty claims.
+5. Put raw candidates in `待评估点子.md`.
+6. Deduplicate candidates against registry titles, aliases, and related IDs.
+7. Promote worthwhile candidates into the registry with a stable ID and status `初筛`.
+8. Apply the four hard gates in [references/scoring-v2.md](references/scoring-v2.md). Reject or park failed candidates with a reason.
 
 Do not require a complete literature baseline before provisional brainstorming. Require sufficient evidence before evaluation, prioritization, or novelty claims.
 

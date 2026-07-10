@@ -24,6 +24,7 @@ Key changes:
 - Weighted 100-point scoring with confidence and sensitivity analysis
 - Urgency as scheduling metadata, not a quality score
 - Profiles for theoretical, computational, qualitative, clinical/field, and design research
+- Eleven complementary generation methods, including contradiction mapping, counterexample-first, measurement-first, and regime mapping
 - A canonical registry plus a temporary inbox, eliminating duplicate lifecycle truth
 - Claim and evidence IDs instead of copied search-log rows
 - Deterministic initialization and a legacy-compatible validator
@@ -84,6 +85,20 @@ The validator checks:
 
 Legacy title-based registries remain readable. Missing stable IDs and old lifecycle labels become warnings unless `--require-ids` or `--strict` raises the migration bar.
 
+### Eleven generation methods
+
+1. Combination innovation
+2. Weakness triangulation
+3. Method transplantation
+4. Theory deep dive
+5. Boundary and assumption challenge
+6. Citation-chain gap mining
+7. Goal-driven reverse engineering
+8. Contradiction mapping
+9. Counterexample-first research
+10. Measurement-first research
+11. Regime and phase mapping
+
 ### Run tests
 
 ```bash
@@ -109,6 +124,7 @@ Inbox → 去重 → 初筛 → 评估 → 最小可否证探针 → 进行中
 - 使用带置信度与敏感性分析的百分制评分
 - 紧迫性只影响排程，不再抬高质量总分
 - 支持理论、计算实验、定性、临床/现场、设计/构造研究
+- 十一种互补生成方法，新增矛盾地图、反例先行、测量先行、制度与相图法
 - `索引.md` 是唯一生命周期真相源，`待评估点子.md` 只做临时 inbox
 - 白皮书引用 claim/evidence ID，不复制证据表
 - 初始化器确定性映射文件，校验器兼容旧格式
@@ -129,6 +145,20 @@ python scripts/validate_idea_index.py /path/to/IDEA --strict --require-ids
 ```
 
 旧索引仍可读取；旧状态、缺失稳定 ID、标题模糊匹配会给出迁移警告。新建工作区应直接满足 v4 契约。
+
+### 十一种生成方法
+
+1. 组合创新
+2. 弱点三角验证
+3. 方法移植
+4. 理论深挖
+5. 边界与假设挑战
+6. 引文链缺口挖掘
+7. 目标反向推导
+8. 矛盾地图
+9. 反例先行
+10. 测量先行
+11. 制度与相图
 
 ### 核心原则
 
