@@ -1,31 +1,29 @@
 # Evidence Log
 
-> Central search and evidence log for novelty claims. Every novelty claim must bind to query/source, date, key results, conclusion, and confidence.
+> 新颖性与差异化证据的唯一记录位置。白皮书引用 ID，不复制本表。
 
-## Rules
+## Evidence Records
 
-1. One row per search, literature-library scan, survey check, or knowledge-base query.
-2. Every novelty claim in an evaluation white paper must reference one or more evidence rows.
-3. Use narrow wording. Prefer "no exact match found in searched sources" over "no one has done this."
-4. Confidence below 0.7 is preliminary and should not support a strong novelty claim.
-
-## Search / Evidence Log
-
-| ID | Date | Idea | Claim | Query / Source | Channel | Key Results | Conclusion | Confidence | Notes |
-|----|------|------|-------|----------------|---------|-------------|------------|:----------:|-------|
-| E1 | YYYY-MM-DD | [Idea name] | [Exact novelty claim] | ["keyword1" "keyword2"] | Web | [Specific papers / no exact match / adjacent work] | [Exact match / partial overlap / adjacent only / no close match] | 0.70 | [Caveats, missing databases, next searches] |
-
-## Confidence Guide
-
-| Confidence | Meaning |
-|:----------:|---------|
-| 0.9-1.0 | Multiple authoritative sources checked; exact and adjacent terms covered |
-| 0.7-0.8 | Good coverage, but some databases, languages, or terms may be missing |
-| 0.5-0.6 | Preliminary search only; useful for brainstorming, not final claims |
-| <0.5 | Too weak to support a novelty claim |
+| Evidence ID | 检索日期 | Idea ID | Claim ID | Query / Source | Channel | Coverage | Filters | Stable IDs / URLs | Key Results | Conclusion | Grade | Confidence | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|:---:|:---:|---|
+| EV-YYYY-NNNN | YYYY-MM-DD | IDEA-YYYY-NNNN | CLM-IDEA-YYYY-NNNN-01 | [query/source] | [database/survey/local/citation-chain] | exact / adjacent / broader / counter | [date/language] | [DOI/URL] | [results and contrary evidence] | exact match / partial overlap / adjacent / no close match | A-D | 0.00-1.00 | [caveats/next search] |
 
 ## Claim Register
 
-| Claim ID | Idea | Novelty Claim | Evidence Rows | Current Wording | Confidence | Status |
-|----------|------|---------------|---------------|-----------------|:----------:|--------|
-| C1 | [Idea name] | [Exact claim] | E1, E2 | [Allowed wording] | 0.70 | Draft / Supported / Needs more search / Collision found |
+| Claim ID | Idea ID | Narrow Claim | Evidence IDs | Gap Level | Allowed Wording | Confidence | Status |
+|---|---|---|---|---|---|:---:|---|
+| CLM-IDEA-YYYY-NNNN-01 | IDEA-YYYY-NNNN | [有边界的主张] | EV-YYYY-NNNN | Local / Search-supported / Validated | [可使用措辞] | 0.00-1.00 | Draft / Supported / Needs search / Collision |
+
+## Search Scope Register
+
+| Claim ID | Databases | Date Range | Languages | Term Families | Reviews | Citation Chains | End Date | Stopping Rule | Residual Gaps |
+|---|---|---|---|---|---|---|---|---|---|
+| CLM-IDEA-YYYY-NNNN-01 | [databases] | [range] | [languages] | [terms] | [reviews] | [scope] | YYYY-MM-DD | saturation / budget / unresolved | [gaps] |
+
+## Evidence Rules
+
+- `D`：仅本地库或少量查询，不能支持新颖性措辞。
+- `C`：初步检索，只用于初筛。
+- `B`：多渠道覆盖较好，但仍有明确遗漏。
+- `A`：权威数据库、综述、术语变体、引文链与标识符均得到核验。
+- 置信度来自覆盖与来源质量，不来自查询数量。

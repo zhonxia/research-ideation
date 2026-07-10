@@ -16,3 +16,9 @@ Thumbs.db
 # SkillHub upload — not part of the skill itself
 AGENTS.md
 research-ideation-v3.2.1.zip
+
+# Generated release artifacts
+*.zip
+dist/
+__pycache__/
+*.pyc

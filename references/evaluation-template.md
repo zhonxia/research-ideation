@@ -1,245 +1,178 @@
-# Evaluation White Paper Template
+# Evaluation White Paper Template v2
 
-Use this template when writing an evaluation white paper for a research idea.
+Use this template only after an idea passes initial screening. Keep evidence in the central evidence log and reference its IDs here.
 
----
+## Contents
+
+1. Decision summary
+2. Idea definition
+3. Hard gates
+4. Research landscape
+5. Differentiation claims
+6. Research plan and feasibility probe
+7. Evaluation profile and score
+8. Risks and governance
+9. Decision
 
 ```markdown
-# [Idea Name] Technical Evaluation White Paper v1.0
-
-**Created**: YYYY-MM-DD  
-**Type**: Initial Screening  
-**Status**: Under Evaluation  
-
+---
+idea_id: IDEA-YYYY-NNNN
+title: Short stable title
+status: 评估中
+research_profile: theoretical | computational-experimental | qualitative | clinical-field | design-constructive
+score_version: v2
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
 ---
 
-## 1. Executive Summary
+# [IDEA-ID] [Title] Evaluation White Paper
 
-**Core Question**: [One sentence describing the research question]
+## 1. Decision Summary
 
-**Findings**:
-- [Key finding 1]
-- [Key finding 2]
-- [Key finding 3]
+**Research question**: [One precise, answerable question]
 
-**Score**: **XX.X / 30**
+**Proposed contribution**: [What new knowledge, method, artifact, or evidence would result?]
 
-| Dimension | Score | One-sentence reason |
-|-----------|:-----:|---------------------|
-| Novelty | X.X | [Why this score? Mention the strongest evidence or uncertainty.] |
-| Technical Feasibility | X.X | [Why this score? Name the key implementation blocker or enabler.] |
-| Experimental Verifiability | X.X | [Why this score? Mention benchmarks, data, metrics, or missing validation path.] |
-| Publication Feasibility | X.X | [Why this score? Mention venue fit, story strength, or reviewer risk.] |
-| Fit with Current Research | X.X | [Why this score? Mention overlap with current work, data, or methods.] |
-| Urgency | X.X | [Why this score? Mention competitive pressure or lack of rush.] |
+**Current decision**: Proceed / Probe first / Park / Reject / Duplicate / Superseded
 
-Example:
-
-| Dimension | Score | One-sentence reason |
-|-----------|:-----:|---------------------|
-| Novelty | 4.0 | Searched Semantic Scholar and Google Scholar; no direct combination found, but adjacent work exists. |
-| Technical Feasibility | 3.0 | The method is plausible, but access to the required molecular dataset is uncertain. |
-
----
+**Weighted score**: XX.X / 100  
+**Overall confidence**: Low / Medium / High  
+**Urgency**: Low / Medium / High; [reason and decision window]  
+**Next review**: YYYY-MM-DD / N/A
 
 ## 2. Idea Definition
 
-**[Idea Name]**: [Precise definition in one paragraph]
+### 2.1 Scope
 
-| Approach | Core Idea | Analogy |
-|----------|-----------|---------|
-| A. [Name] | [Description] | [Comparison] |
-| B. [Name] | [Description] | [Comparison] |
+- **Population/system/domain**: [scope]
+- **Intervention/method/exposure**: [scope]
+- **Comparator/baseline**: [scope]
+- **Outcome/claim**: [scope]
+- **Explicit exclusions**: [what this idea does not claim]
 
-**Recommended Priority**: [A > B > C]
+### 2.2 Contribution Type
 
----
+- [ ] Theory or proof
+- [ ] Method or algorithm
+- [ ] Empirical finding
+- [ ] Dataset, benchmark, or measurement instrument
+- [ ] System or design artifact
+- [ ] Synthesis or conceptual framework
 
-## 3. Research Status
+### 2.3 One-Sentence Pitch
 
-### 3.1 Existing Work on Your Method's Side
+[Problem -> gap -> contribution -> consequence]
 
-[What has the field already done? What methods exist?]
+## 3. Hard Gates
 
-| Method | Type | Sequential? |
-|--------|------|:-----------:|
-| GA | Evolutionary | ✗ |
-| PSO | Swarm | ✗ |
+| Gate | Pass? | Evidence and reason |
+|---|:---:|---|
+| Problem significance | Yes / No / Unknown | [Who needs the answer and what changes?] |
+| Falsifiability / answerability | Yes / No / Unknown | [What result would disconfirm or bound the claim?] |
+| Resource access | Yes / No / Unknown | [Data, equipment, expertise, time, permissions] |
+| Ethics and governance | Yes / No / N/A / Unknown | [Privacy, consent, safety, dual use, licensing] |
 
-### 3.2 Adjacent Work That Almost Reaches This Idea
+**Gate decision**: Continue / Run a gate-closing probe / Stop
 
-| Work | Distance | Analysis |
-|------|:--------:|----------|
-| Paper 1 | Close | [Why it's close but different] |
-| Paper 2 | Medium | [Why it's close but different] |
+Do not calculate a weighted score while a critical gate is `No`. Treat `Unknown` as an explicit next action.
 
-### 3.3 Knowledge Base / Literature Library Verification
+## 4. Research Landscape
 
-- [ ] Checked `05-文献库/` — found / not found
-- [ ] Checked external knowledge base (if applicable)
-- [ ] Document what was found (even if nothing)
+### 4.1 Local Coverage
 
----
+[Summarize relevant `05-文献库/` notes. Label absences only as local coverage gaps.]
 
-## 4. Novelty Verification
+### 4.2 Search Scope
 
-### Novelty Claims
+- **Databases/channels**: [list]
+- **Date range**: [range]
+- **Languages**: [list]
+- **Terminology families**: [list]
+- **Reviews checked**: [citations]
+- **Backward/forward citation chains**: [scope]
+- **Search end date**: YYYY-MM-DD
+- **Stopping rule reached**: saturation / time budget / unresolved
 
-Each claim below must be supported by one or more rows in the Search Log. Use narrow wording and avoid absolute claims unless the evidence is unusually strong.
+### 4.3 Closest Work
 
-| Claim ID | Novelty Claim | Evidence Rows | Confidence | Allowed Wording |
-|----------|---------------|---------------|:----------:|-----------------|
-| C1 | [Exact claim being made] | E1, E2, E3 | 0.75 | [No exact match found in searched sources as of YYYY-MM-DD] |
+| Work | Identifier | Overlap | Remaining difference | Threat level |
+|---|---|---|---|:---:|
+| [Citation] | DOI/URL | [overlap] | [narrow difference] | High/Med/Low |
 
-### Search Log
+## 5. Differentiation Claims
 
-Every row must also be appended to `01-灵感收集/evidence-log.md` so the central evidence history stays complete.
+| Claim ID | Narrow claim | Evidence IDs | Gap level | Confidence | Allowed wording |
+|---|---|---|---|:---:|---|
+| CLM-[IDEA-ID]-01 | [claim] | EV-YYYY-NNNN, ... | Local / Search-supported / Validated | 0.00-1.00 | [bounded statement] |
 
-| Row ID | Date | Query / Source | Channel | Key Results | Conclusion | Confidence | Supports Claim | Notes |
-|--------|------|----------------|---------|-------------|------------|:----------:|----------------|-------|
-| E1 | YYYY-MM-DD | `"keyword1" "keyword2"` | Web | [Top papers / no exact match / related work] | [Exact match / partial overlap / adjacent only / no close match] | 0.70 | C1 | [Caveats, missing databases] |
-| E2 | YYYY-MM-DD | `05-文献库/` scan | Literature library | [Relevant notes found / none found] | [Conclusion] | 0.80 | C1 | [Scope of local library] |
-| E3 | YYYY-MM-DD | [Survey paper title, year] | Survey | [What the survey covers or misses] | [Conclusion] | 0.75 | C1 | [Limitations] |
+**Contrary evidence**: [Evidence that weakens or narrows the contribution]
 
-### Verdict
+**Residual uncertainty**: [Missing venues, terms, languages, data, or citation branches]
 
-- [ ] Exact combination has been done before
-- [ ] Partial overlap with existing work (specify)
-- [ ] No exact match found in searched sources as of YYYY-MM-DD
+## 6. Research Plan And Feasibility Probe
 
-**Careful novelty statement**: [State exactly what can be claimed based on the evidence above. Prefer "no exact match found in searched sources" over "no one has done this."]
+### 6.1 Minimum Invalidating Probe
 
-**Residual uncertainty**: [What sources, databases, venues, languages, or keywords still need checking?]
+- **Question**: [cheapest high-information uncertainty]
+- **Procedure**: [small proof, pilot, expert interview, data audit, prototype, etc.]
+- **Pass criterion**: [observable threshold]
+- **Stop criterion**: [result that rejects or reframes the idea]
+- **Budget**: [time/resources]
 
----
+### 6.2 Full Research Plan
 
-## 5. Technical Feasibility
+[Use the selected research profile. Define data or premises, method, comparators, outcomes, uncertainty analysis, and reproducibility plan.]
 
-### Approach A: [Name]
+### 6.3 Expected Failure Modes
 
-**Problem Formulation**:
-- State: [s_t = ...]
-- Action: [a_t = ...]
-- Reward: [r_t = ...]
+| Failure mode | Likelihood | Consequence | Early signal | Mitigation |
+|---|:---:|:---:|---|---|
+| [risk] | H/M/L | H/M/L | [signal] | [action] |
 
-**Technical Route**:
+## 7. Evaluation Profile And Score
+
+**Profile**: [profile]  
+**Score version**: v2
+
+| Dimension | Weight | Score (1-5) | Confidence | One-sentence evidence-based reason |
+|---|:---:|:---:|:---:|---|
+| Problem significance | 20 | X.X | L/M/H | [reason] |
+| Differentiation | 20 | X.X | L/M/H | [reason and claim IDs] |
+| Technical/method feasibility | 15 | X.X | L/M/H | [reason] |
+| Validation clarity | 15 | X.X | L/M/H | [reason] |
+| Publication/communication readiness | 10 | X.X | L/M/H | [audience, venue, and framing] |
+| Strategic fit | 20 | X.X | L/M/H | [skills, portfolio, resources] |
+
+**Weighted score**: sum(score / 5 * weight) = XX.X / 100
+
+**Sensitivity**: [Which uncertain dimension could change the decision? Re-score the plausible low/high case.]
+
+For publication/communication readiness, use [story-framing.md](story-framing.md) to clarify the narrative. Do not use framing to compensate for weak significance, differentiation, or evidence.
+
+Do not compare this score with legacy 30-point scores without explicitly converting or re-evaluating them.
+
+## 8. Risks And Governance
+
+| Area | Finding | Required action |
+|---|---|---|
+| Ethics/privacy | [finding] | [action] |
+| Permissions/licensing | [finding] | [action] |
+| Dual use/safety | [finding] | [action] |
+| Reproducibility | [finding] | [action] |
+| Researcher degrees of freedom | [finding] | [action] |
+
+## 9. Decision
+
+**Decision**: Proceed / Probe first / Park / Reject / Duplicate / Superseded
+
+**Decision reason**: [Tie the decision to gates, evidence, score sensitivity, and opportunity cost.]
+
+**Related idea ID**: [required for Duplicate or Superseded]
+
+**Next actions**:
+
+- [ ] [owner/action/date]
+- [ ] [owner/action/date]
+
+**Next review date**: YYYY-MM-DD / N/A
 ```
-[Input] → [Step 1] → [Step 2] → [Output]
-```
-
-**Advantages**:
-- [Advantage 1]
-- [Advantage 2]
-
-**Challenges**:
-- [Challenge 1]
-- [Challenge 2]
-
-### Approach B: [Name]
-[Same structure]
-
----
-
-## 6. Application Scenarios
-
-| Scenario | Recommended Approach | Reason |
-|----------|:-------------------:|--------|
-| [Scenario 1] | A | [Why] |
-| [Scenario 2] | B | [Why] |
-
----
-
-## 7. Risk Assessment
-
-| Risk | Severity | Probability | Mitigation |
-|------|:--------:|:-----------:|------------|
-| [Risk 1] | High | Medium | [How to handle] |
-| [Risk 2] | Medium | High | [How to handle] |
-
----
-
-## 8. Literature Support
-
-| # | Reference | Purpose |
-|---|-----------|---------|
-| 1 | [Author, Year, Journal] | [What it supports] |
-| 2 | [Author, Year, Journal] | [What it supports] |
-
----
-
-## 9. Horizontal Comparison
-
-| Idea | Novelty | Total | Status |
-|------|:------:|:-----:|--------|
-| [This idea] | X.X | XX.X | Under evaluation |
-| [Previous idea 1] | X.X | XX.X | [Status] |
-| [Previous idea 2] | X.X | XX.X | [Status] |
-
----
-
-## 10. Conclusion & Recommendation
-
-**Conclusion**: [One paragraph summary]
-
-**Recommendation**:
-- [ ] Proceed to next phase
-- [ ] Needs more research
-- [ ] Not recommended
-
-**Next Steps**:
-- [ ] [Action 1]
-- [ ] [Action 2]
-- [ ] [Action 3]
-```
-
----
-
-## Scoring Guidelines
-
-### Novelty (新颖性)
-- 5.0: Completely unexplored, zero competitors
-- 4.0: Very few related works, clear gap
-- 3.0: Some adjacent work exists, differentiation needed
-- 2.0: Significant competition, must find unique angle
-- 1.0: Already well-studied
-
-Novelty score must have a one-sentence reason that points to the strongest Search Log evidence or the main uncertainty.
-
-### Technical Feasibility (技术可行性)
-- 5.0: Clear technical path, known building blocks
-- 4.0: Mostly clear, minor unknowns
-- 3.0: Significant technical challenges but theoretically solvable
-- 2.0: Major open problems, high risk
-- 1.0: Theoretically questionable
-
-### Experimental Verifiability (实验可验证性)
-- 5.0: Standard benchmarks exist, clear metrics
-- 4.0: Can create meaningful experiments
-- 3.0: Experiments possible but require effort
-- 2.0: Hard to demonstrate convincingly
-- 1.0: Nearly impossible to verify
-
-### Publication Feasibility (发表可行性)
-- 5.0: Perfect fit for top venues, addresses hot topic
-- 4.0: Good fit for relevant journals/conferences
-- 3.0: Publishable with right framing
-- 2.0: Niche audience, may need to find right venue
-- 1.0: Hard to find appropriate venue
-
-### Fit with Current Research (契合度)
-- 5.0: Direct extension of current work
-- 4.0: Strong connection, shares data/methods
-- 3.0: Related field, some overlap
-- 2.0: Different direction but same domain
-- 1.0: Completely different research area
-
-### Urgency (紧迫性)
-- 5.0: Multiple groups about to publish, must act now
-- 4.0: Growing interest, likely competition in 6-12 months
-- 3.0: Moderate interest, some risk of being scooped
-- 2.0: Low competition, can take time
-- 1.0: No rush, niche topic
-
----
-
-> 💡 **Storytelling matters**: How you frame an idea can be as important as the idea itself. See [`references/story-framing.md`](story-framing.md) for reviewer psychology, four narrative frameworks, and the one-sentence test — use these to strengthen the `Publication Feasibility` score and the overall white paper narrative.
