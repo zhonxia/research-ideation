@@ -52,6 +52,10 @@ class WorkspaceToolsTest(unittest.TestCase):
         self.assertTrue((self.root / "README.md").is_file())
         self.assertTrue((self.root / "01-灵感收集" / "索引.md").is_file())
         self.assertTrue((self.root / "05-文献库" / "_文献模板.md").is_file())
+        self.assertTrue((self.root / "01-灵感收集" / "问题结构图谱.md").is_file())
+        self.assertTrue((self.root / "06-跨领域方法库" / "索引.md").is_file())
+        self.assertTrue((self.root / "06-跨领域方法库" / "扫描记录.md").is_file())
+        self.assertTrue((self.root / "06-跨领域方法库" / "领域" / "_方法卡模板.md").is_file())
         self.assertFalse((self.root / "01-灵感收集" / "文献.md").exists())
 
         registry = self.root / "01-灵感收集" / "索引.md"
@@ -64,6 +68,7 @@ class WorkspaceToolsTest(unittest.TestCase):
         findings, summary = validate(self.root, require_ids=True)
         self.assertEqual([], findings)
         self.assertEqual(0, summary["registry_records"])
+        self.assertEqual({"problems": 0, "methods": 0, "scans": 0, "matches": 0}, summary["method_atlas"])
 
     def test_title_normalization_preserves_numeric_terms(self) -> None:
         self.assertEqual(canonical_title("#13 Legacy title"), canonical_title("Legacy title"))
@@ -187,6 +192,82 @@ score_version: v2
         self.assertIn("十一种生成方法", guide)
         self.assertIn("1-11 / 用户输入", inbox)
         self.assertIn("### Eleven generation methods", readme)
+        self.assertIn("cross-domain-method-atlas.md", methods)
+
+    def test_valid_cross_domain_match(self) -> None:
+        problem_path = self.root / "01-灵感收集" / "问题结构图谱.md"
+        problem_path.write_text(
+            """# Problems
+
+| Problem ID | 问题标题 | 状态 |
+|---|---|---|
+| PROB-BRB-001 | Dependent evidence | Verified |
+""",
+            encoding="utf-8",
+        )
+        atlas = self.root / "06-跨领域方法库"
+        (atlas / "索引.md").write_text(
+            """# Methods
+
+| Method ID | 方法名 | 核心假设 | 成熟度证据 | 失败边界 | 状态 |
+|---|---|---|---|---|---|
+| METHOD-STAT-001 | Robust estimator | bounded contamination | review and independent use | high contamination | Verified |
+""",
+            encoding="utf-8",
+        )
+        (atlas / "扫描记录.md").write_text(
+            """# Scans
+
+| Scan ID | 目标 Problem IDs | 新增 Method IDs |
+|---|---|---|
+| SCAN-2026-0001 | PROB-BRB-001 | METHOD-STAT-001 |
+
+| Match ID | Problem ID | Method ID | Bridge Statement | 结果 | Idea ID | 原因/下一步 |
+|---|---|---|---|---|---|---|
+| MATCH-2026-0001 | PROB-BRB-001 | METHOD-STAT-001 | P has S; M solves S under A; adapt C and compare N | Promising | | run transfer validation |
+""",
+            encoding="utf-8",
+        )
+
+        findings, summary = validate(self.root, require_ids=True)
+        self.assertEqual([], findings)
+        self.assertEqual({"problems": 1, "methods": 1, "scans": 1, "matches": 1}, summary["method_atlas"])
+
+    def test_invalid_cross_domain_match_is_reported(self) -> None:
+        problem_path = self.root / "01-灵感收集" / "问题结构图谱.md"
+        problem_path.write_text(
+            """# Problems
+
+| Problem ID | 问题标题 |
+|---|---|
+| PROB-BRB-001 | Known problem |
+""",
+            encoding="utf-8",
+        )
+        atlas = self.root / "06-跨领域方法库"
+        (atlas / "索引.md").write_text(
+            """# Methods
+
+| Method ID | 方法名 | 状态 |
+|---|---|---|
+| METHOD-STAT-001 | Known method | Candidate |
+""",
+            encoding="utf-8",
+        )
+        (atlas / "扫描记录.md").write_text(
+            """# Matches
+
+| Match ID | Problem ID | Method ID | Bridge Statement | 结果 | Idea ID | 原因/下一步 |
+|---|---|---|---|---|---|---|
+| MATCH-2026-0001 | PROB-BRB-999 | METHOD-STAT-999 | | Negative | | |
+""",
+            encoding="utf-8",
+        )
+
+        codes = self.codes(require_ids=True)
+        self.assertIn("match_unknown_problem", codes)
+        self.assertIn("match_unknown_method", codes)
+        self.assertIn("negative_match_without_reason", codes)
 
 
 if __name__ == "__main__":

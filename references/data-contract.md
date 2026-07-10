@@ -10,6 +10,10 @@ Use this contract for new records. The validator accepts legacy records but repo
 | Evidence | `EV-YYYY-NNNN` | `EV-2026-0042` |
 | Claim | `CLM-IDEA-YYYY-NNNN-NN` | `CLM-IDEA-2026-0106-01` |
 | Paper note | DOI when available; otherwise `PAPER-YYYY-NNNN` | `10.1000/example` |
+| Target problem | `PROB-TARGET-NNN` | `PROB-BRB-001` |
+| Mature method | `METHOD-DOMAIN-NNN` | `METHOD-CTRL-001` |
+| Domain scan | `SCAN-YYYY-NNNN` | `SCAN-2026-0001` |
+| Method match | `MATCH-YYYY-NNNN` | `MATCH-2026-0001` |
 
 Never recycle an ID. Titles and folder names may change; IDs must not.
 
@@ -31,6 +35,14 @@ Never recycle an ID. Titles and folder names may change; IDs must not.
 | 关联/原因 | Conditional | Decision reason; target ID for `重复`/`已取代` |
 
 The inbox is not a second registry. Remove a promoted row or set its disposition to the assigned idea ID.
+
+## Cross-Domain Atlas Ownership
+
+- `01-灵感收集/问题结构图谱.md` owns target problem identities and structural descriptions.
+- `06-跨领域方法库/索引.md` owns domain coverage and method identities.
+- `06-跨领域方法库/领域/*.md` owns full method cards.
+- `06-跨领域方法库/扫描记录.md` owns scan sessions and all match outcomes, including negative matches.
+- A promising match is not an idea until Method 3 validates the transfer and the pair is promoted through the inbox.
 
 ## Statuses And Locations
 

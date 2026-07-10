@@ -22,7 +22,13 @@ EVIDENCE_ID_RE = re.compile(r"^EV-\d{4}-\d{4}$", re.IGNORECASE)
 CLAIM_ID_RE = re.compile(r"^CLM-IDEA-\d{4}-\d{4}-\d{2}$", re.IGNORECASE)
 IDEA_ID_SEARCH_RE = re.compile(r"IDEA-\d{4}-\d{4}", re.IGNORECASE)
 EVIDENCE_ID_SEARCH_RE = re.compile(r"EV-\d{4}-\d{4}", re.IGNORECASE)
-PLACEHOLDER_MARKERS = ("YYYY", "[", "示例", "example")
+PROBLEM_ID_RE = re.compile(r"^PROB-[A-Z0-9]+-\d{3}$", re.IGNORECASE)
+METHOD_ID_RE = re.compile(r"^METHOD-[A-Z0-9]+-\d{3}$", re.IGNORECASE)
+SCAN_ID_RE = re.compile(r"^SCAN-\d{4}-\d{4}$", re.IGNORECASE)
+MATCH_ID_RE = re.compile(r"^MATCH-\d{4}-\d{4}$", re.IGNORECASE)
+PROBLEM_ID_SEARCH_RE = re.compile(r"PROB-[A-Z0-9]+-\d{3}", re.IGNORECASE)
+METHOD_ID_SEARCH_RE = re.compile(r"METHOD-[A-Z0-9]+-\d{3}", re.IGNORECASE)
+PLACEHOLDER_MARKERS = ("YYYY", "NNN", "[", "示例", "example")
 
 CANONICAL_STATUSES = {
     "初筛",
@@ -522,6 +528,151 @@ def validate_evidence(
     return len(evidence), len(claims)
 
 
+def validate_method_atlas(
+    root: Path,
+    registered_idea_ids: set[str],
+    findings: list[Finding],
+    *,
+    require_atlas: bool,
+) -> dict[str, int]:
+    atlas = root / "06-跨领域方法库"
+    if not atlas.is_dir():
+        level = "ERROR" if require_atlas else "WARN"
+        findings.append(Finding(level, "method_atlas_missing", "Cross-domain method atlas is missing", str(atlas)))
+        return {"problems": 0, "methods": 0, "scans": 0, "matches": 0}
+
+    problem_path = root / "01-灵感收集" / "问题结构图谱.md"
+    method_path = atlas / "索引.md"
+    scan_path = atlas / "扫描记录.md"
+    problem_text = read_text(problem_path, findings)
+    method_text = read_text(method_path, findings)
+    scan_text = read_text(scan_path, findings)
+
+    problems: set[str] = set()
+    methods: set[str] = set()
+    scans: set[str] = set()
+    matches: set[str] = set()
+
+    for headers, rows in iter_markdown_tables(problem_text):
+        id_column = find_column(headers, ["problem id"])
+        if id_column is None:
+            continue
+        for row in rows:
+            problem_id = strip_markdown(row[id_column]).upper()
+            if is_placeholder(problem_id):
+                continue
+            if not PROBLEM_ID_RE.fullmatch(problem_id):
+                findings.append(Finding("ERROR", "invalid_problem_id", f"Invalid problem ID: {problem_id}", str(problem_path)))
+                continue
+            if problem_id in problems:
+                findings.append(Finding("ERROR", "duplicate_problem_id", f"Duplicate problem ID: {problem_id}", str(problem_path)))
+            problems.add(problem_id)
+
+    for headers, rows in iter_markdown_tables(method_text):
+        id_column = find_column(headers, ["method id"])
+        if id_column is None:
+            continue
+        status_column = find_column(headers, ["状态", "status"])
+        assumption_column = find_column(headers, ["核心假设", "assumptions"])
+        maturity_column = find_column(headers, ["成熟度证据", "maturity evidence"])
+        failure_column = find_column(headers, ["失败边界", "failure boundary"])
+        for row in rows:
+            method_id = strip_markdown(row[id_column]).upper()
+            if is_placeholder(method_id):
+                continue
+            if not METHOD_ID_RE.fullmatch(method_id):
+                findings.append(Finding("ERROR", "invalid_method_id", f"Invalid method ID: {method_id}", str(method_path)))
+                continue
+            if method_id in methods:
+                findings.append(Finding("ERROR", "duplicate_method_id", f"Duplicate method ID: {method_id}", str(method_path)))
+            methods.add(method_id)
+            status = strip_markdown(row[status_column]) if status_column is not None else ""
+            if status.casefold() == "verified":
+                required_fields = {
+                    "assumptions": assumption_column,
+                    "maturity evidence": maturity_column,
+                    "failure boundary": failure_column,
+                }
+                for label, column in required_fields.items():
+                    if column is None or not strip_markdown(row[column]):
+                        findings.append(Finding("ERROR", "incomplete_verified_method", f"Verified method {method_id} lacks {label}", str(method_path)))
+
+    for headers, rows in iter_markdown_tables(scan_text):
+        scan_column = find_column(headers, ["scan id"])
+        match_column = find_column(headers, ["match id"])
+        problem_column = find_column(headers, ["problem id", "target problem ids", "目标 problem ids"])
+        method_column = find_column(headers, ["method id", "新增 method ids"])
+        result_column = find_column(headers, ["结果", "result"])
+        idea_column = find_column(headers, ["idea id"])
+        bridge_column = find_column(headers, ["bridge statement"])
+        reason_column = find_column(headers, ["原因/下一步", "reason"])
+
+        for row in rows:
+            if scan_column is not None:
+                scan_id = strip_markdown(row[scan_column]).upper()
+                if is_placeholder(scan_id):
+                    continue
+                if not SCAN_ID_RE.fullmatch(scan_id):
+                    findings.append(Finding("ERROR", "invalid_scan_id", f"Invalid scan ID: {scan_id}", str(scan_path)))
+                    continue
+                if scan_id in scans:
+                    findings.append(Finding("ERROR", "duplicate_scan_id", f"Duplicate scan ID: {scan_id}", str(scan_path)))
+                scans.add(scan_id)
+                if problem_column is not None:
+                    for problem_id in split_ids(row[problem_column], PROBLEM_ID_SEARCH_RE):
+                        if problem_id not in problems:
+                            findings.append(Finding("ERROR", "scan_unknown_problem", f"Scan {scan_id} references unknown problem {problem_id}", str(scan_path)))
+                if method_column is not None:
+                    for method_id in split_ids(row[method_column], METHOD_ID_SEARCH_RE):
+                        if method_id not in methods:
+                            findings.append(Finding("ERROR", "scan_unknown_method", f"Scan {scan_id} references unknown method {method_id}", str(scan_path)))
+
+            if match_column is not None:
+                match_id = strip_markdown(row[match_column]).upper()
+                if is_placeholder(match_id):
+                    continue
+                if not MATCH_ID_RE.fullmatch(match_id):
+                    findings.append(Finding("ERROR", "invalid_match_id", f"Invalid match ID: {match_id}", str(scan_path)))
+                    continue
+                if match_id in matches:
+                    findings.append(Finding("ERROR", "duplicate_match_id", f"Duplicate match ID: {match_id}", str(scan_path)))
+                matches.add(match_id)
+                problem_ids = split_ids(row[problem_column], PROBLEM_ID_SEARCH_RE) if problem_column is not None else []
+                method_ids = split_ids(row[method_column], METHOD_ID_SEARCH_RE) if method_column is not None else []
+                if len(problem_ids) != 1 or problem_ids[0] not in problems:
+                    findings.append(Finding("ERROR", "match_unknown_problem", f"Match {match_id} needs one registered problem ID", str(scan_path)))
+                if len(method_ids) != 1 or method_ids[0] not in methods:
+                    findings.append(Finding("ERROR", "match_unknown_method", f"Match {match_id} needs one registered method ID", str(scan_path)))
+                result = strip_markdown(row[result_column]) if result_column is not None else ""
+                if result.casefold() in {"promising", "promoted"}:
+                    bridge = strip_markdown(row[bridge_column]) if bridge_column is not None else ""
+                    if not bridge:
+                        findings.append(Finding("ERROR", "match_missing_bridge", f"{result} match {match_id} needs a bridge statement", str(scan_path)))
+                if result.casefold() == "promoted":
+                    idea_id = strip_markdown(row[idea_column]).upper() if idea_column is not None else ""
+                    if idea_id not in registered_idea_ids:
+                        findings.append(Finding("ERROR", "match_unknown_idea", f"Promoted match {match_id} needs a registered idea ID", str(scan_path)))
+                if result.casefold() == "negative":
+                    reason = strip_markdown(row[reason_column]) if reason_column is not None else ""
+                    if not reason:
+                        findings.append(Finding("ERROR", "negative_match_without_reason", f"Negative match {match_id} needs a reason", str(scan_path)))
+
+    domain_directory = atlas / "领域"
+    if not domain_directory.is_dir():
+        findings.append(Finding("ERROR", "method_domain_dir_missing", "Method-card domain directory is missing", str(domain_directory)))
+    else:
+        card_ids: set[str] = set()
+        for path in domain_directory.glob("*.md"):
+            if path.name.startswith("_"):
+                continue
+            text = read_text(path, findings, required=False)
+            card_ids.update(match.group(0).upper() for match in METHOD_ID_SEARCH_RE.finditer(text))
+        for method_id in card_ids - methods:
+            findings.append(Finding("ERROR", "method_card_not_indexed", f"Method card {method_id} is not registered in the atlas index", str(domain_directory)))
+
+    return {"problems": len(problems), "methods": len(methods), "scans": len(scans), "matches": len(matches)}
+
+
 def validate(root: Path, *, require_ids: bool = False) -> tuple[list[Finding], dict[str, object]]:
     findings: list[Finding] = []
     root = root.expanduser().resolve()
@@ -544,6 +695,9 @@ def validate(root: Path, *, require_ids: bool = False) -> tuple[list[Finding], d
         collection / "evidence-log.md", records, findings, require_ids=require_ids
     )
     folder_counts = validate_folders(root, records, findings)
+    atlas_counts = validate_method_atlas(
+        root, registered_ids, findings, require_atlas=require_ids
+    )
 
     summary = {
         "idea_root": str(root),
@@ -552,6 +706,7 @@ def validate(root: Path, *, require_ids: bool = False) -> tuple[list[Finding], d
         "inbox_rows": inbox_count,
         "evidence_records": evidence_count,
         "claims": claim_count,
+        "method_atlas": atlas_counts,
         "status_folders": folder_counts,
         "errors": sum(finding.level == "ERROR" for finding in findings),
         "warnings": sum(finding.level == "WARN" for finding in findings),
@@ -579,6 +734,13 @@ def print_report(findings: list[Finding], summary: dict[str, object], *, verbose
             )}
         )
     )
+    atlas = summary.get("method_atlas", {})
+    if isinstance(atlas, dict):
+        print(
+            "Atlas: problems={problems} | methods={methods} | scans={scans} | matches={matches}".format(
+                **{key: atlas.get(key, 0) for key in ("problems", "methods", "scans", "matches")}
+            )
+        )
     if not findings:
         print("OK: workspace conforms to the v4 contract.")
         return

@@ -25,6 +25,7 @@ Key changes:
 - Urgency as scheduling metadata, not a quality score
 - Profiles for theoretical, computational, qualitative, clinical/field, and design research
 - Eleven complementary generation methods, including contradiction mapping, counterexample-first, measurement-first, and regime mapping
+- A problem-structure map and verified cross-domain method atlas for systematic combination innovation
 - A canonical registry plus a temporary inbox, eliminating duplicate lifecycle truth
 - Claim and evidence IDs instead of copied search-log rows
 - Deterministic initialization and a legacy-compatible validator
@@ -53,12 +54,18 @@ IDEA/
 │   ├── 索引.md
 │   ├── 想点子指南.md
 │   ├── 待评估点子.md
-│   └── evidence-log.md
+│   ├── evidence-log.md
+│   └── 问题结构图谱.md
 ├── 02-评估中/
 ├── 03-进行中/
 ├── 04-已归档/
 ├── 05-文献库/
 │   └── _文献模板.md
+├── 06-跨领域方法库/
+│   ├── 索引.md
+│   ├── 扫描记录.md
+│   └── 领域/
+│       └── _方法卡模板.md
 └── README.md
 ```
 
@@ -125,6 +132,7 @@ Inbox → 去重 → 初筛 → 评估 → 最小可否证探针 → 进行中
 - 紧迫性只影响排程，不再抬高质量总分
 - 支持理论、计算实验、定性、临床/现场、设计/构造研究
 - 十一种互补生成方法，新增矛盾地图、反例先行、测量先行、制度与相图法
+- 用问题结构图谱和经核验跨领域方法库系统化组合创新
 - `索引.md` 是唯一生命周期真相源，`待评估点子.md` 只做临时 inbox
 - 白皮书引用 claim/evidence ID，不复制证据表
 - 初始化器确定性映射文件，校验器兼容旧格式
@@ -160,6 +168,8 @@ python scripts/validate_idea_index.py /path/to/IDEA --strict --require-ids
 10. 测量先行
 11. 制度与相图
 
+组合创新不直接做“领域名 × BRB”。它先登记目标问题结构，再按来源领域扫描成熟方法，检查结构拟合、假设兼容性、本领域替代方案和非平凡改造，并保留负匹配历史。
+
 ### 核心原则
 
 1. 本地库缺失只能说明本地覆盖缺口。
@@ -176,6 +186,7 @@ SKILL.md                    Core workflow and routing
 agents/openai.yaml          Codex UI metadata
 assets/                     Workspace templates
 references/                 Detailed methods and contracts
+references/cross-domain-method-atlas.md  Combination-search protocol
 scripts/init_idea.py        Deterministic initializer
 scripts/validate_idea_index.py  Workspace validator
 scripts/package_skill.py    Lean release builder

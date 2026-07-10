@@ -56,7 +56,9 @@ After initialization:
 1. Add concise notes to `05-文献库/`, one paper per file.
 2. Classify the literature already collected.
 3. Record uncovered local areas as **local coverage gaps**, not research gaps.
-4. Run `python scripts/validate_idea_index.py /path/to/IDEA`.
+4. Record target-field bottlenecks in `01-灵感收集/问题结构图谱.md` before scanning source methods.
+5. Use `06-跨领域方法库/` to track domain coverage, verified method cards, scans, and negative matches.
+6. Run `python scripts/validate_idea_index.py /path/to/IDEA`.
 
 ## Generate And Screen Ideas
 
@@ -72,6 +74,21 @@ When brainstorming:
 8. Apply the four hard gates in [references/scoring-v2.md](references/scoring-v2.md). Reject or park failed candidates with a reason.
 
 Do not require a complete literature baseline before provisional brainstorming. Require sufficient evidence before evaluation, prioritization, or novelty claims.
+
+## Run Systematic Combination Innovation
+
+When the user asks to combine mature methods from other fields, read [references/cross-domain-method-atlas.md](references/cross-domain-method-atlas.md) and use this sequence:
+
+1. Select verified target problems from `问题结构图谱.md`; do not start from fashionable method names.
+2. Choose one bounded source-domain scan from `06-跨领域方法库/索引.md`.
+3. Search authoritative reviews, handbooks, standards, canonical papers, and independent applications.
+4. Admit a method card only after its structural purpose, inputs, outputs, assumptions, maturity evidence, and failure boundaries are traceable.
+5. Match target problems to methods by shared structure, not by domain labels.
+6. Check native target-field alternatives, assumption compatibility, and whether a non-trivial adaptation is necessary.
+7. Write a bridge statement and record the result in `扫描记录.md` as promising, negative, deferred, or promoted.
+8. Hand promising pairs to Method 3 for deep transfer validation before adding them to the idea inbox.
+
+Record negative matches. Do not let later brainstorming repeat a rejected pair without new evidence.
 
 ## Verify Differentiation
 
@@ -163,3 +180,4 @@ Fix `ERROR` findings. Review `WARN` findings, especially legacy records, missing
 8. Check ethics, privacy, permissions, and dual-use risk where applicable.
 9. Compare only compatible score versions and research profiles.
 10. Validate after lifecycle, registry, or evidence changes.
+11. Match cross-domain methods by problem structure and preserve negative-match history.

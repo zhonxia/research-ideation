@@ -20,15 +20,23 @@ Use these eleven methods to create candidates. Generation produces hypotheses an
 
 ## 1. Combination Innovation
 
-Combine a core method or phenomenon with a technology, theory, data regime, or domain.
+Use combination innovation as a systematic discovery process across the target problem-structure map and a verified cross-domain method atlas. Read [cross-domain-method-atlas.md](cross-domain-method-atlas.md) before running a broad combination scan.
 
-Ask:
+### Procedure
 
-- Does the combination solve a real incompatibility or merely join fashionable labels?
-- What scientific question becomes answerable only after the combination?
-- Which component is the contribution rather than implementation glue?
+1. Select one or more verified target problems and abstract away field-specific terminology.
+2. Select a bounded source-domain scan from the coverage plan.
+3. Search authoritative sources and extract only methods that pass the maturity gate.
+4. Match problem structures to method purposes.
+5. Reject pairs that share only labels, violate defining assumptions, duplicate native solutions, or require only implementation glue.
+6. Record promising, negative, and deferred matches.
+7. Send promising pairs to Method 3 for deep transfer validation.
 
-Output: one precise research question, the necessary interaction, and a non-combination baseline.
+Require this bridge sentence:
+
+> Target problem P has structure S; method M addresses S under assumptions A; the target setting violates or extends B, so adaptation C is required; outcome R distinguishes C from native baseline N.
+
+Output: coverage-aware scan record, verified method cards, match/negative-match records, and a shortlist for Method 3. Do not output a novelty claim.
 
 ## 2. Weakness Triangulation
 
@@ -46,16 +54,18 @@ Output: affected population/system, observed consequence, and why current workar
 
 ## 3. Method Transplantation
 
-Map a mature construct from another field onto an isomorphic problem.
+Deeply validate one promising problem-method pair discovered by Method 1 or another evidence-backed route. Method 3 does not perform broad random scanning.
 
-Check:
+### Procedure
 
-1. Which assumptions make the source method valid?
-2. Do those assumptions hold in the target field?
-3. What adaptation is scientifically non-trivial?
-4. Which target-field baseline is stronger than a naive transplant?
+1. Map source constructs, operations, inputs, outputs, and guarantees to target constructs.
+2. Classify every important source assumption as preserved, violated, or unknown.
+3. Compare against native target-field methods and the no-transplant baseline.
+4. Design a negative-transfer test that would show the source method is inappropriate.
+5. Specify the theoretical, algorithmic, or measurement adaptation required by violated assumptions.
+6. Define the minimum discriminating probe and stop criterion.
 
-Output: source construct, target construct, preserved assumptions, broken assumptions, and required adaptation.
+Output: construct mapping, assumption ledger, native alternatives, negative-transfer test, required adaptation, and minimum probe. Promote the pair only when the adaptation yields generalizable knowledge.
 
 ## 4. Theory Deep Dive
 
@@ -173,7 +183,7 @@ BRB/ER example: map rule count, evidence dependence, and weight perturbation to 
 
 | Available signal | Prefer |
 |---|---|
-| New technology, theory, data regime, or domain | Combination innovation |
+| Verified target problem plus a mature method with the same abstract structure | Combination innovation |
 | Repeated practical or empirical weakness | Weakness triangulation |
 | Mature construct in another field | Method transplantation |
 | Missing mathematical foundation | Theory deep dive |
