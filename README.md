@@ -26,6 +26,8 @@ Key changes:
 - Profiles for theoretical, computational, qualitative, clinical/field, and design research
 - Eleven complementary generation methods, including contradiction mapping, counterexample-first, measurement-first, and regime mapping
 - A problem-structure map and verified cross-domain method atlas for systematic combination innovation
+- A lightweight research idea card before full evaluation
+- Four-part novelty-claim decomposition, abstract triage, focused full-text review, and a concrete Delta Statement
 - A canonical registry plus a temporary inbox, eliminating duplicate lifecycle truth
 - Claim and evidence IDs instead of copied search-log rows
 - Deterministic initialization and a legacy-compatible validator
@@ -54,6 +56,7 @@ IDEA/
 │   ├── 索引.md
 │   ├── 想点子指南.md
 │   ├── 待评估点子.md
+│   ├── _研究点子卡模板.md
 │   ├── evidence-log.md
 │   └── 问题结构图谱.md
 ├── 02-评估中/
@@ -133,6 +136,8 @@ Inbox → 去重 → 初筛 → 评估 → 最小可否证探针 → 进行中
 - 支持理论、计算实验、定性、临床/现场、设计/构造研究
 - 十一种互补生成方法，新增矛盾地图、反例先行、测量先行、制度与相图法
 - 用问题结构图谱和经核验跨领域方法库系统化组合创新
+- 用轻量研究点子卡衔接初筛与正式评估
+- 将创新主张拆成四部分，经过宽搜、摘要初筛和重点全文核查后写出明确差异陈述
 - `索引.md` 是唯一生命周期真相源，`待评估点子.md` 只做临时 inbox
 - 白皮书引用 claim/evidence ID，不复制证据表
 - 初始化器确定性映射文件，校验器兼容旧格式

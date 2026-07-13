@@ -51,6 +51,7 @@ class WorkspaceToolsTest(unittest.TestCase):
     def test_initializer_maps_assets_and_preserves_existing_files(self) -> None:
         self.assertTrue((self.root / "README.md").is_file())
         self.assertTrue((self.root / "01-灵感收集" / "索引.md").is_file())
+        self.assertTrue((self.root / "01-灵感收集" / "_研究点子卡模板.md").is_file())
         self.assertTrue((self.root / "05-文献库" / "_文献模板.md").is_file())
         self.assertTrue((self.root / "01-灵感收集" / "问题结构图谱.md").is_file())
         self.assertTrue((self.root / "06-跨领域方法库" / "索引.md").is_file())

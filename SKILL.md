@@ -71,7 +71,8 @@ When brainstorming:
 5. Put raw candidates in `待评估点子.md`.
 6. Deduplicate candidates against registry titles, aliases, and related IDs.
 7. Promote worthwhile candidates into the registry with a stable ID and status `初筛`.
-8. Apply the four hard gates in [references/scoring-v2.md](references/scoring-v2.md). Reject or park failed candidates with a reason.
+8. For a candidate being considered for formal evaluation, create a concise research idea card from `assets/研究点子卡.md`.
+9. Apply the four hard gates in [references/scoring-v2.md](references/scoring-v2.md). Reject or park failed candidates with a reason.
 
 Do not require a complete literature baseline before provisional brainstorming. Require sufficient evidence before evaluation, prioritization, or novelty claims.
 
@@ -100,6 +101,8 @@ Use three evidence levels and preserve the distinction:
 
 Read [references/novelty-protocol.md](references/novelty-protocol.md) before checking novelty. Record evidence once in `evidence-log.md` using stable evidence and claim IDs. White papers must reference those IDs rather than copying evidence rows.
 
+Before searching, split the novelty claim into problem framing, core mechanism, key insight, and application domain. Search broadly, triage by title and abstract, then read the full text of only the closest or ambiguous works. End with a concrete Delta Statement against the closest verified work. Treat assumptions and operating conditions as a separate mandatory check; do not reduce novelty to a simple count of matching axes.
+
 Allowed wording:
 
 > No exact match was found in the documented sources and search scope as of YYYY-MM-DD.
@@ -115,7 +118,7 @@ Then:
 1. Confirm the idea ID and set status to `评估中`.
 2. Create `02-评估中/[IDEA-ID] [short-title]/` for new work. Preserve legacy folder names when updating existing work.
 3. Apply the significance, falsifiability, resource, and ethics gates.
-4. Execute the novelty protocol until the search saturates or the declared search budget expires.
+4. Execute the novelty protocol: decompose the claim, search broadly, triage abstracts, deep-read the closest works, and write a Delta Statement.
 5. Define the minimum feasibility probe that could invalidate the idea cheaply.
 6. Write the white paper from [references/evaluation-template.md](references/evaluation-template.md).
 7. Score with [references/scoring-v2.md](references/scoring-v2.md). Record a score, confidence, and one-sentence reason for every dimension.

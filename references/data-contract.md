@@ -36,6 +36,16 @@ Never recycle an ID. Titles and folder names may change; IDs must not.
 
 The inbox is not a second registry. Remove a promoted row or set its disposition to the assigned idea ID.
 
+## Research Idea Card
+
+Use `01-灵感收集/_研究点子卡模板.md` for a promoted idea that is being considered for formal evaluation. The card is a lightweight decision artifact, not a second registry and not a replacement for the evaluation white paper.
+
+- The registry remains the source of truth for ID and status.
+- The card must split the innovation claim into problem framing, core mechanism, key insight, and application domain.
+- Record assumptions and operating conditions separately.
+- Write a Delta Statement only after naming the closest verified work; use `待检索` before that evidence exists.
+- Require the card before substantial evaluation work, not for every raw inbox entry.
+
 ## Cross-Domain Atlas Ownership
 
 - `01-灵感收集/问题结构图谱.md` owns target problem identities and structural descriptions.

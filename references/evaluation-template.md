@@ -63,6 +63,17 @@ updated: YYYY-MM-DD
 
 [Problem -> gap -> contribution -> consequence]
 
+### 2.4 Innovation Claim Breakdown
+
+| Part | Proposed claim |
+|---|---|
+| Problem framing | [task, inputs, outputs, population, evaluation setting] |
+| Core mechanism | [algorithm, theory, proof move, experiment, or data construction] |
+| Key insight | [why it may work and what prior work lacks] |
+| Application domain | [field, setting, and intended scope] |
+
+**Assumptions and operating conditions**: [conditions required for the claim]
+
 ## 3. Hard Gates
 
 | Gate | Pass? | Evidence and reason |
@@ -95,9 +106,13 @@ Do not calculate a weighted score while a critical gate is `No`. Treat `Unknown`
 
 ### 4.3 Closest Work
 
-| Work | Identifier | Overlap | Remaining difference | Threat level |
-|---|---|---|---|:---:|
-| [Citation] | DOI/URL | [overlap] | [narrow difference] | High/Med/Low |
+| Work | Identifier | Evidence read | Four-part comparison | Remaining difference | Threat level |
+|---|---|---|---|---|:---:|
+| [Citation] | DOI/URL | Abstract / Full text | [match/partial/different/unclear by part] | [narrow difference] | High/Med/Low |
+
+**Delta Statement**:
+
+> Unlike [closest verified work], which [does X under condition or assumption Y], this idea [changes X, relaxes Y, or extends to Z], and tests the difference through [observable result R].
 
 ## 5. Differentiation Claims
 
