@@ -1,10 +1,14 @@
 # Research Ideation v4
 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![v4](https://img.shields.io/badge/version-v4-brightgreen)]()
+
+🇨🇳 [中文](README.zh.md)
+
 An evidence-backed workflow for generating, screening, evaluating, and managing academic research ideas.
 
-[English](#english) | [中文](#中文)
-
-## English
+---
 
 ### What changed in v4
 
@@ -115,76 +119,16 @@ Legacy title-based registries remain readable. Missing stable IDs and old lifecy
 python -m unittest discover -s tests -v
 ```
 
-## 中文
+### Core principles
 
-### v4 的核心变化
+1. A local coverage gap only proves local coverage is incomplete.
+2. An idea receives its stable ID when it leaves the inbox; IDs are never reused.
+3. Score only after all hard gates are passed.
+4. Every score must be accompanied by evidence rationale and confidence level.
+5. Compare only ideas scored under the same version and compatible research profiles.
+6. Validate immediately after any lifecycle, evidence, or folder change.
 
-v4 不再让每个灵感直接进入完整白皮书，而是采用逐级增加成本的漏斗：
-
-```text
-Inbox → 去重 → 初筛 → 评估 → 最小可否证探针 → 进行中
-                    ↘ 拒绝       ↘ 搁置 / 重复 / 已取代 / 归档
-```
-
-主要改进：
-
-- 使用稳定点子 ID：`IDEA-YYYY-NNNN`
-- 严格区分“本地文献未覆盖”和“经检索支持的研究缺口”
-- 评分前先检查问题重要性、可回答性、资源和伦理四项硬门槛
-- 使用带置信度与敏感性分析的百分制评分
-- 紧迫性只影响排程，不再抬高质量总分
-- 支持理论、计算实验、定性、临床/现场、设计/构造研究
-- 十一种互补生成方法，新增矛盾地图、反例先行、测量先行、制度与相图法
-- 用问题结构图谱和经核验跨领域方法库系统化组合创新
-- 用轻量研究点子卡衔接初筛与正式评估
-- 将创新主张拆成四部分，经过宽搜、摘要初筛和重点全文核查后写出明确差异陈述
-- `索引.md` 是唯一生命周期真相源，`待评估点子.md` 只做临时 inbox
-- 白皮书引用 claim/evidence ID，不复制证据表
-- 初始化器确定性映射文件，校验器兼容旧格式
-
-### 初始化
-
-```bash
-python scripts/init_idea.py /path/to/IDEA
-```
-
-默认不会覆盖已有文件。需要明确替换模板时才使用 `--force`。
-
-### 校验
-
-```bash
-python scripts/validate_idea_index.py /path/to/IDEA
-python scripts/validate_idea_index.py /path/to/IDEA --strict --require-ids
-```
-
-旧索引仍可读取；旧状态、缺失稳定 ID、标题模糊匹配会给出迁移警告。新建工作区应直接满足 v4 契约。
-
-### 十一种生成方法
-
-1. 组合创新
-2. 弱点三角验证
-3. 方法移植
-4. 理论深挖
-5. 边界与假设挑战
-6. 引文链缺口挖掘
-7. 目标反向推导
-8. 矛盾地图
-9. 反例先行
-10. 测量先行
-11. 制度与相图
-
-组合创新不直接做“领域名 × BRB”。它先登记目标问题结构，再按来源领域扫描成熟方法，检查结构拟合、假设兼容性、本领域替代方案和非平凡改造，并保留负匹配历史。
-
-### 核心原则
-
-1. 本地库缺失只能说明本地覆盖缺口。
-2. 点子离开 inbox 时分配稳定 ID，ID 永不复用。
-3. 硬门槛通过后再评分。
-4. 分数必须包含证据理由和置信度。
-5. 只比较相同评分版本和兼容研究类型。
-6. 生命周期、证据或文件夹变化后立即校验。
-
-## Repository layout
+### Repository layout
 
 ```text
 SKILL.md                    Core workflow and routing
