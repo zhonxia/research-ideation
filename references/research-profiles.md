@@ -14,7 +14,8 @@ Select one primary profile before applying gates, planning validation, or interp
 - Define datasets, baselines, metrics, ablations, uncertainty, and compute budget.
 - Separate algorithmic novelty from implementation changes.
 - Plan statistical power, leakage controls, robustness, and reproducibility.
-- The minimum probe may be a small benchmark, synthetic identifiability test, or baseline reproduction.
+- For effect-efficacy claims, predefine a minimum meaningful improvement and compare a strong native baseline, direct transfer, adapted method, and relevant external baseline while controlling resources.
+- The minimum probe may be a small controlled benchmark, synthetic identifiability test, or strong-baseline reproduction.
 
 ## Qualitative
 

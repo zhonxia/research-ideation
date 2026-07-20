@@ -22,19 +22,29 @@ Use these eleven methods to create candidates. Generation produces hypotheses an
 
 Use combination innovation as a systematic discovery process across the target problem-structure map and a verified cross-domain method atlas. Read [cross-domain-method-atlas.md](cross-domain-method-atlas.md) before running a broad combination scan.
 
+Read [validation-routes.md](validation-routes.md) and choose one primary route for each candidate:
+
+- **Problem-existence**: the contribution depends on showing that a target limitation materially exists.
+- **Effect-efficacy**: the target task is already legitimate, and the contribution depends on an adapted mature method outperforming current practice.
+
 ### Procedure
 
-1. Select one or more verified target problems and abstract away field-specific terminology.
-2. Select a bounded source-domain scan from the coverage plan.
-3. Search authoritative sources and extract only methods that pass the maturity gate.
-4. Match problem structures to method purposes.
-5. Reject pairs that share only labels, violate defining assumptions, duplicate native solutions, or require only implementation glue.
-6. Record promising, negative, and deferred matches.
-7. Send promising pairs to Method 3 for deep transfer validation.
+1. Choose the validation route before defining the probe.
+2. For problem-existence, select a verified target problem and abstract away field-specific terminology.
+3. For effect-efficacy, select an established target task, outcome, and strong native baseline; a newly proven target defect is not required.
+4. Select a bounded source-domain scan and extract only methods that pass the maturity gate.
+5. Match target structures to method purposes.
+6. Reject pairs that share only labels, violate defining assumptions, duplicate native solutions, or require only implementation glue.
+7. Record promising, negative, and deferred matches, including the selected validation route.
+8. Send promising pairs to Method 3 for deep transfer validation.
 
-Require this bridge sentence:
+For problem-existence, require this bridge sentence:
 
 > Target problem P has structure S; method M addresses S under assumptions A; the target setting violates or extends B, so adaptation C is required; outcome R distinguishes C from native baseline N.
+
+For effect-efficacy, require this bridge sentence:
+
+> Target task T currently uses baseline N and values outcome R; mature method M improves structurally similar tasks under assumptions A; target-specific constraint B requires adaptation C; C must outperform both N and direct transfer M by a meaningful margin while keeping cost K acceptable.
 
 Output: coverage-aware scan record, verified method cards, match/negative-match records, and a shortlist for Method 3. Do not output a novelty claim.
 
@@ -61,11 +71,13 @@ Deeply validate one promising problem-method pair discovered by Method 1 or anot
 1. Map source constructs, operations, inputs, outputs, and guarantees to target constructs.
 2. Classify every important source assumption as preserved, violated, or unknown.
 3. Compare against native target-field methods and the no-transplant baseline.
-4. Design a negative-transfer test that would show the source method is inappropriate.
-5. Specify the theoretical, algorithmic, or measurement adaptation required by violated assumptions.
-6. Define the minimum discriminating probe and stop criterion.
+4. Preserve the selected validation route; do not automatically turn an effect-efficacy candidate into a problem-existence study.
+5. For problem-existence, design an existence/severity test before investing in the solution.
+6. For effect-efficacy, compare the native baseline, direct transfer, adapted method, and relevant external baseline; define the minimum meaningful improvement, ablations, uncertainty, and resource controls.
+7. Specify the theoretical, algorithmic, measurement, or design adaptation required by target constraints.
+8. Define the route-aligned minimum discriminating probe and stop criterion.
 
-Output: construct mapping, assumption ledger, native alternatives, negative-transfer test, required adaptation, and minimum probe. Promote the pair only when the adaptation yields generalizable knowledge.
+Output: validation route, construct mapping, assumption ledger, native alternatives, required adaptation, comparison design, and minimum probe. Promote the pair only when the adaptation yields generalizable knowledge or a reproducible, meaningful effect beyond extra resources.
 
 ## 4. Theory Deep Dive
 

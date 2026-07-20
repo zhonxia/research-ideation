@@ -78,18 +78,21 @@ Do not require a complete literature baseline before provisional brainstorming. 
 
 ## Run Systematic Combination Innovation
 
-When the user asks to combine mature methods from other fields, read [references/cross-domain-method-atlas.md](references/cross-domain-method-atlas.md) and use this sequence:
+When the user asks to combine mature methods from other fields, read [references/cross-domain-method-atlas.md](references/cross-domain-method-atlas.md) and [references/validation-routes.md](references/validation-routes.md). Use this sequence:
 
-1. Select verified target problems from `问题结构图谱.md`; do not start from fashionable method names.
-2. Choose one bounded source-domain scan from `06-跨领域方法库/索引.md`.
-3. Search authoritative reviews, handbooks, standards, canonical papers, and independent applications.
-4. Admit a method card only after its structural purpose, inputs, outputs, assumptions, maturity evidence, and failure boundaries are traceable.
-5. Match target problems to methods by shared structure, not by domain labels.
-6. Check native target-field alternatives, assumption compatibility, and whether a non-trivial adaptation is necessary.
-7. Write a bridge statement and record the result in `扫描记录.md` as promising, negative, deferred, or promoted.
-8. Hand promising pairs to Method 3 for deep transfer validation before adding them to the idea inbox.
+1. Select the primary validation route for each candidate: **problem-existence** or **effect-efficacy**.
+2. For problem-existence, start from a verified target problem in `问题结构图谱.md`. For effect-efficacy, start from an established target task and strong native baseline, then select a verified mature method with a relevant demonstrated capability.
+3. Choose one bounded source-domain scan from `06-跨领域方法库/索引.md`.
+4. Search authoritative reviews, handbooks, standards, canonical papers, and independent applications.
+5. Admit a method card only after its structural purpose, inputs, outputs, assumptions, maturity evidence, and failure boundaries are traceable.
+6. Match target structures to method purposes, not by domain labels or trend status.
+7. Check native alternatives, assumption compatibility, and whether the adaptation adds scientific knowledge beyond interface glue.
+8. Write a route-specific bridge statement and record the result in `扫描记录.md` as promising, negative, deferred, or promoted.
+9. Hand promising pairs to Method 3 for deep transfer validation before adding them to the idea inbox.
 
 Record negative matches. Do not let later brainstorming repeat a rejected pair without new evidence.
+
+Do not equate falsifiability with problem-existence testing. For an effect-efficacy idea, make the primary probe a controlled comparison of the adapted method against strong baselines, with a minimum meaningful improvement, ablations, uncertainty, and resource costs. When generating a diverse batch, consider both validation routes unless the user or available evidence clearly favors one.
 
 ## Verify Differentiation
 
@@ -119,7 +122,7 @@ Then:
 2. Create `02-评估中/[IDEA-ID] [short-title]/` for new work. Preserve legacy folder names when updating existing work.
 3. Apply the significance, falsifiability, resource, and ethics gates.
 4. Execute the novelty protocol: decompose the claim, search broadly, triage abstracts, deep-read the closest works, and write a Delta Statement.
-5. Define the minimum feasibility probe that could invalidate the idea cheaply.
+5. Define a claim-aligned minimum feasibility probe. Use an existence/severity test for a problem-existence claim, and a controlled effect comparison for an effect-efficacy claim.
 6. Write the white paper from [references/evaluation-template.md](references/evaluation-template.md).
 7. Score with [references/scoring-v2.md](references/scoring-v2.md). Record a score, confidence, and one-sentence reason for every dimension.
 8. Update the registry with the weighted score, confidence, decision, and next review date.
@@ -184,3 +187,4 @@ Fix `ERROR` findings. Review `WARN` findings, especially legacy records, missing
 9. Compare only compatible score versions and research profiles.
 10. Validate after lifecycle, registry, or evidence changes.
 11. Match cross-domain methods by problem structure and preserve negative-match history.
+12. Keep problem-existence and effect-efficacy validation distinct; do not force every combination idea through a problem-existence proof.

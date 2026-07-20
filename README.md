@@ -29,7 +29,7 @@ Key changes:
 - Urgency as scheduling metadata, not a quality score
 - Profiles for theoretical, computational, qualitative, clinical/field, and design research
 - Eleven complementary generation methods, including contradiction mapping, counterexample-first, measurement-first, and regime mapping
-- A problem-structure map and verified cross-domain method atlas for systematic combination innovation
+- A two-route combination workflow: problem-led discovery or method-led effect improvement, both backed by a verified cross-domain method atlas
 - A lightweight research idea card before full evaluation
 - Four-part novelty-claim decomposition, abstract triage, focused full-text review, and a concrete Delta Statement
 - A canonical registry plus a temporary inbox, eliminating duplicate lifecycle truth
@@ -113,6 +113,13 @@ Legacy title-based registries remain readable. Missing stable IDs and old lifecy
 10. Measurement-first research
 11. Regime and phase mapping
 
+Combination innovation supports two primary validation routes:
+
+- **Problem-existence**: show that a target limitation materially affects the system before investing in a remedy.
+- **Effect-efficacy**: adapt a mature method to an established target task and test whether it beats a strong native baseline and direct transfer by a meaningful margin at acceptable cost.
+
+The effect-efficacy route requires baselines, ablations, uncertainty analysis, and resource accounting. It does not require inventing or proving a new target-field defect first.
+
 ### Run tests
 
 ```bash
@@ -136,6 +143,7 @@ agents/openai.yaml          Codex UI metadata
 assets/                     Workspace templates
 references/                 Detailed methods and contracts
 references/cross-domain-method-atlas.md  Combination-search protocol
+references/validation-routes.md  Problem-existence vs effect-efficacy validation
 scripts/init_idea.py        Deterministic initializer
 scripts/validate_idea_index.py  Workspace validator
 scripts/package_skill.py    Lean release builder

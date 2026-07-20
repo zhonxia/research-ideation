@@ -195,6 +195,23 @@ score_version: v2
         self.assertIn("### Eleven generation methods", readme)
         self.assertIn("cross-domain-method-atlas.md", methods)
 
+    def test_combination_validation_routes_are_exposed(self) -> None:
+        skill_root = Path(__file__).resolve().parents[1]
+        skill = (skill_root / "SKILL.md").read_text(encoding="utf-8")
+        methods = (skill_root / "references" / "idea-generation-methods.md").read_text(encoding="utf-8")
+        routes = (skill_root / "references" / "validation-routes.md").read_text(encoding="utf-8")
+        card = (skill_root / "assets" / "研究点子卡.md").read_text(encoding="utf-8")
+        evaluation = (skill_root / "references" / "evaluation-template.md").read_text(encoding="utf-8")
+
+        for text in (skill, methods, routes):
+            self.assertIn("problem-existence", text)
+            self.assertIn("effect-efficacy", text)
+        self.assertIn("minimum meaningful improvement", routes)
+        self.assertIn("Direct transfer M", routes)
+        self.assertIn("primary_validation: problem-existence | effect-efficacy | other", card)
+        self.assertIn("Strong native baseline N", evaluation)
+        self.assertIn("Direct transfer M", evaluation)
+
     def test_valid_cross_domain_match(self) -> None:
         problem_path = self.root / "01-灵感收集" / "问题结构图谱.md"
         problem_path.write_text(

@@ -17,7 +17,7 @@ Use the atlas to turn combination innovation from random association into a repr
 ## Three-Layer Model
 
 ```text
-Target problem-structure map
+Target problem or established target task
         x
 Cross-domain mature-method atlas
         ↓ structural matching
@@ -28,7 +28,14 @@ Method-transplantation validation
 Provisional research candidate
 ```
 
-Do not match domain labels directly. Match a target problem's abstract structure to the structure a method is designed to solve.
+Do not match domain labels directly. Match the target problem or task structure to the structure a method is designed to solve.
+
+Combination innovation supports two entry routes. Read [validation-routes.md](validation-routes.md) before matching:
+
+- **Problem-led**: start from a verified target limitation and test whether it materially exists.
+- **Method-led effect scan**: start from a verified mature capability, then search established target tasks where a target-specific adaptation could deliver measurable benefit over a strong native baseline.
+
+Method-led does not mean trend-led. Reject a method selected only because it is fashionable, recent, or easy to attach.
 
 ## Stable Identifiers
 
@@ -43,7 +50,7 @@ Never recycle identifiers. A rejected match remains useful evidence.
 
 ## Build The Problem-Structure Map
 
-Start from the target field, not from fashionable source methods.
+For the problem-led route, start from the target field, not from fashionable source methods. For the method-led effect route, begin with a verified method card but require an established target task, outcome, and native baseline before creating a match.
 
 For each target problem, record:
 
@@ -107,9 +114,15 @@ Evaluate each pair through four gates:
 3. **Necessity and alternatives**: Does a native target-field method already solve the problem adequately?
 4. **Non-trivial adaptation**: Is a scientifically meaningful adaptation required, or only implementation glue?
 
-Require this bridge statement:
+Choose the primary validation route before writing the bridge statement.
+
+Problem-existence route:
 
 > In the target field, problem P has structure S. Method M addresses S under assumptions A. The target setting violates or extends B, so contribution C is required. Result R would distinguish C from native baseline N.
+
+Effect-efficacy route:
+
+> In target task T, baseline N is evaluated by outcome R. Method M improves structurally similar tasks under assumptions A. Target constraint B requires adaptation C. C must beat N and direct transfer M by a meaningful margin while keeping cost K acceptable.
 
 If the statement cannot be completed with evidence, record a negative or deferred match instead of generating an idea.
 
@@ -120,7 +133,8 @@ Combination innovation ends after it discovers and records a promising pair. Met
 - Construct-to-construct mapping
 - Preserved, violated, and unknown assumptions
 - Native target-field alternatives
-- Negative-transfer and failure tests
+- Selected validation route
+- Existence/severity test or controlled effect comparison
 - Required theoretical or algorithmic adaptation
 - Minimum discriminating probe
 
@@ -143,6 +157,8 @@ Prefer a small verified atlas over an exhaustive unverified catalog. Start with 
 - Domain-name Cartesian products such as "physics + BRB" without a shared structure
 - Trend lists without source verification
 - Treating a mature source method as evidence that the target field needs it
+- Requiring a new target-field defect when the central claim is an effect improvement on an established task
+- Claiming improvement without a strong native baseline, direct-transfer control, ablation, uncertainty, or resource accounting
 - Ignoring native target-field baselines
 - Hiding failed mappings instead of recording negative matches
 - Reusing a method's name while violating its defining assumptions

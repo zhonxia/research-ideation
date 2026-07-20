@@ -42,6 +42,8 @@ Use `01-灵感收集/_研究点子卡模板.md` for a promoted idea that is bein
 
 - The registry remains the source of truth for ID and status.
 - The card must split the innovation claim into problem framing, core mechanism, key insight, and application domain.
+- The card must name the primary validation route. Combination ideas use `problem-existence` or `effect-efficacy`; other idea types may use `other` with an explicit claim-aligned probe.
+- An effect-efficacy card must name a strong native baseline, direct-transfer control, adapted method, primary outcome, minimum meaningful improvement, ablations, uncertainty protocol, and resource costs.
 - Record assumptions and operating conditions separately.
 - Write a Delta Statement only after naming the closest verified work; use `待检索` before that evidence exists.
 - Require the card before substantial evaluation work, not for every raw inbox entry.

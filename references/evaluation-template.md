@@ -20,6 +20,7 @@ idea_id: IDEA-YYYY-NNNN
 title: Short stable title
 status: 评估中
 research_profile: theoretical | computational-experimental | qualitative | clinical-field | design-constructive
+primary_validation: problem-existence | effect-efficacy | other
 score_version: v2
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -126,7 +127,15 @@ Do not calculate a weighted score while a critical gate is `No`. Treat `Unknown`
 
 ## 6. Research Plan And Feasibility Probe
 
-### 6.1 Minimum Invalidating Probe
+### 6.1 Primary Validation Route
+
+**Route**: Problem-existence / Effect-efficacy / Other
+
+**Central empirical or theoretical claim**: [What result carries the paper?]
+
+Do not require a problem-existence proof for an effect-efficacy claim. Match the probe to the central claim.
+
+### 6.2 Claim-Aligned Minimum Probe
 
 - **Question**: [cheapest high-information uncertainty]
 - **Procedure**: [small proof, pilot, expert interview, data audit, prototype, etc.]
@@ -134,11 +143,28 @@ Do not calculate a weighted score while a critical gate is `No`. Treat `Unknown`
 - **Stop criterion**: [result that rejects or reframes the idea]
 - **Budget**: [time/resources]
 
-### 6.2 Full Research Plan
+For a problem-existence route, specify the existence/severity metric and positive/negative controls.
+
+For an effect-efficacy route, complete this comparison design:
+
+| Element | Specification |
+|---|---|
+| Established target task | [task and why it matters] |
+| Strong native baseline N | [current credible method] |
+| Direct transfer M | [source method without target-specific adaptation] |
+| Adapted method C | [proposed method] |
+| Relevant external baseline | [if applicable] |
+| Primary outcome R | [metric] |
+| Minimum meaningful improvement | [predefined threshold] |
+| Ablations | [components that isolate the adaptation] |
+| Resource and cost controls K | [data, parameters, tuning, compute, maintenance] |
+| Uncertainty protocol | [datasets, regimes, seeds, intervals/tests] |
+
+### 6.3 Full Research Plan
 
 [Use the selected research profile. Define data or premises, method, comparators, outcomes, uncertainty analysis, and reproducibility plan.]
 
-### 6.3 Expected Failure Modes
+### 6.4 Expected Failure Modes
 
 | Failure mode | Likelihood | Consequence | Early signal | Mitigation |
 |---|:---:|:---:|---|---|
