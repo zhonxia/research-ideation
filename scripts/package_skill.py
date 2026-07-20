@@ -38,7 +38,7 @@ def build_archive(output: Path) -> list[str]:
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in files:
             relative = path.relative_to(skill_root).as_posix()
-            member = f"research-ideation/{relative}"
+            member = relative
             info = zipfile.ZipInfo(member, date_time=ZIP_TIMESTAMP)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
