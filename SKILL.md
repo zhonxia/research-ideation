@@ -98,6 +98,17 @@ python scripts/validate_idea_index.py /path/to/IDEA
 python scripts/validate_idea_index.py /path/to/IDEA --strict --require-ids
 ```
 
+## Communication Style
+
+When using this skill to interact with the user:
+
+1. **No double quotes.** Do not put words in quotes for emphasis or hedging. Quotes are only for direct citations from papers or sources.
+2. **Plain language.** Say things directly. Avoid academic jargon (infrastructure, paradigm, granularity, leverage,赋能), abstract metaphors, and filler phrases ("from a certain perspective", "to some extent", "at the macro level").
+3. **Direct conclusions first.** Say what the answer is, then explain why. Do not start with "this needs to be analyzed from multiple angles."
+4. **Use Chinese only.** No mixing English terms unless the English word has no common Chinese equivalent (software names, code identifiers).
+
+These rules apply regardless of the topic. Every response should sound like a person explaining something clearly, not a document summarizing itself.
+
 ## Non-Negotiable Rules
 
 1. Do not infer global novelty from a local collection.
