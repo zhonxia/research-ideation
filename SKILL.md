@@ -39,6 +39,14 @@ Canonical statuses:
 | `进行中` | Active research | `03-进行中/` |
 | `搁置` / `拒绝` / `重复` / `已取代` / `已完成` / `已放弃` | Terminal or parked | `04-已归档/` |
 
+## Package
+
+When distributing as a zip archive, ensure SKILL.md is at the zip root (not nested under a subdirectory). The import tool reads SKILL.md directly from the archive root.
+
+```bash
+python scripts/package_skill.py dist/research-ideation.zip
+```
+
 ## Initialize
 
 ```bash
@@ -61,7 +69,7 @@ If stuck, read `references/idea-generation-methods.md` for alternative approache
 
 | Stage | What to have |
 |---|---|
-| **Brainstorming / `初筛`** | A sketch: borrowed capability, why direct transfer may be insufficient, one or two innovation hooks, a minimum probe and stop condition. **No finalized algorithm or proof required.** |
+| **Brainstorming / `初筛`** | A sketch covering: (1) **what problem it solves** — the exact limitation or bottleneck in current practice, why it matters, what changes if solved; (2) borrowed capability and why direct transfer may be insufficient; (3) one or two innovation hooks; (4) a minimum probe and stop condition. **No finalized algorithm or proof required.** |
 | **`评估中`** | Resolve the sketch into a concrete delta against the closest work and direct transfer, with a defensible mechanism and evaluation design. |
 | **`进行中`** | Complete method, theory, measurement design, or artifact needed to support the paper's claims. |
 
