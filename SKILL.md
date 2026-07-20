@@ -59,6 +59,15 @@ It maps each asset to the correct destination and does not overwrite existing fi
 
 1. **Default to effect-efficacy** (borrow a mature method, adapt it, compare against baselines). Only switch to problem-existence when the central claim depends on proving that a target limitation actually exists.
 2. Write candidates to `待评估点子.md`. No formal requirements — one line is enough.
+
+When presenting generated ideas to the user, **each idea must use this exact format**:
+
+> **1. 解决什么问题：** 一句话点明核心痛点或 Gap。
+> **2. 创新切入点：** 一句话说明最独特的抓手是什么。
+> **3. 应用价值：** 一句话概括理论或实际意义。
+
+每点控制在 1-2 句话内，不要展开成段落。
+
 3. Deduplicate against the registry (titles, aliases, related IDs).
 4. Promote worthwhile candidates to the registry with a stable ID and status `初筛`.
 5. Apply the four hard gates (significance, falsifiability, resources, ethics). Reject or park failed candidates with a reason.
