@@ -134,6 +134,7 @@ python -m unittest discover -s tests -v
 4. Every score must be accompanied by evidence rationale and confidence level.
 5. Compare only ideas scored under the same version and compatible research profiles.
 6. Validate immediately after any lifecycle, evidence, or folder change.
+7. **Default to the effect-efficacy route.** Most published SCI papers follow the "borrow a mature method, adapt it to the target, compare against baselines" pattern. Only switch to the problem-existence route when the central claim depends on proving that a target limitation actually exists.
 
 ### Repository layout
 

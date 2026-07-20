@@ -1,5 +1,7 @@
 # Idea Generation Methods
 
+**Priority: default to the effect-efficacy route** (method transplantation, combination innovation). Most published SCI papers follow the "borrow a mature method, adapt it to the target, compare against baselines" pattern. Only switch to the problem-existence route when the central claim is that a target assumption, guarantee, or workflow actually fails.
+
 Use these eleven methods to create candidates. Generation produces hypotheses and contribution sketches, not novelty claims.
 
 ## Contents
@@ -71,7 +73,7 @@ Deeply validate one promising problem-method pair discovered by Method 1 or anot
 1. Map source constructs, operations, inputs, outputs, and guarantees to target constructs.
 2. Classify every important source assumption as preserved, violated, or unknown.
 3. Compare against native target-field methods and the no-transplant baseline.
-4. Preserve the selected validation route; do not automatically turn an effect-efficacy candidate into a problem-existence study.
+4. Preserve the selected validation route; do not automatically turn an effect-efficacy candidate into a problem-existence study. **The effect-efficacy route is the default** — only fall back to problem-existence when the central contribution depends on proving that a target limitation exists.
 5. For problem-existence, design an existence/severity test before investing in the solution.
 6. For effect-efficacy, compare the native baseline, direct transfer, adapted method, and relevant external baseline; define the minimum meaningful improvement, ablations, uncertainty, and resource controls.
 7. Specify the theoretical, algorithmic, measurement, or design adaptation required by target constraints.
@@ -193,19 +195,21 @@ BRB/ER example: map rule count, evidence dependence, and weight perturbation to 
 
 ## Method Selection
 
-| Available signal | Prefer |
-|---|---|
-| Verified target problem plus a mature method with the same abstract structure | Combination innovation |
-| Repeated practical or empirical weakness | Weakness triangulation |
-| Mature construct in another field | Method transplantation |
-| Missing mathematical foundation | Theory deep dive |
-| Unrealistic default assumption | Boundary and assumption challenge |
-| Explicit unresolved statement with a citation history | Citation-chain gap mining |
-| Concrete outcome blocked by missing knowledge | Goal-driven reverse engineering |
-| Credible results that cannot all be true under one model | Contradiction mapping |
-| Accepted property that may fail on a small instance | Counterexample-first research |
-| Weak construct, proxy, metric, or benchmark | Measurement-first research |
-| Behavior changes across scale or operating conditions | Regime and phase mapping |
+| Available signal | Prefer | Validation route |
+|---|---|---|
+| Target task + mature method with same abstract structure | Combination innovation | **Effect-efficacy (default)** |
+| Mature construct in another field | Method transplantation | **Effect-efficacy (default)** |
+| Concrete outcome blocked by missing knowledge | Goal-driven reverse engineering | Mixed |
+| Repeated practical or empirical weakness | Weakness triangulation | Problem-existence |
+| Missing mathematical foundation | Theory deep dive | Problem-existence |
+| Unrealistic default assumption | Boundary and assumption challenge | Problem-existence |
+| Explicit unresolved statement with a citation history | Citation-chain gap mining | Problem-existence |
+| Credible results that cannot all be true under one model | Contradiction mapping | Problem-existence |
+| Accepted property that may fail on a small instance | Counterexample-first research | Problem-existence |
+| Weak construct, proxy, metric, or benchmark | Measurement-first research | Problem-existence |
+| Behavior changes across scale or operating conditions | Regime and phase mapping | Problem-existence |
+
+Default to the effect-efficacy route (rows marked "Effect-efficacy (default)"). Only use problem-existence when the research contribution depends on proving that a target limitation actually exists.
 
 Use more than one method only when each contributes a different artifact. Do not relabel one candidate eleven times.
 

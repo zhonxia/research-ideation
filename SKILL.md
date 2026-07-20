@@ -66,7 +66,7 @@ When brainstorming:
 
 1. Read the user's research context, the registry, and relevant literature notes.
 2. Read [references/idea-generation-methods.md](references/idea-generation-methods.md).
-3. Choose methods from the signal actually available: use contradiction mapping for conflicting findings, counterexample-first for accepted properties, measurement-first for weak constructs or metrics, and regime mapping for behavior that changes across conditions.
+3. **Default to the effect-efficacy route** (method transplantation, combination innovation). Only switch to the problem-existence route when the central claim is that a target assumption, guarantee, or workflow actually fails. Choose methods from the signal available: use contradiction mapping for conflicting findings, counterexample-first for accepted properties, measurement-first for weak constructs or metrics, and regime mapping for behavior that changes across conditions — but most published SCI papers follow the "borrow, adapt, compare" pattern of the effect-efficacy route.
 4. Generate diverse candidates without making novelty claims.
 5. Put raw candidates in `待评估点子.md`.
 6. Deduplicate candidates against registry titles, aliases, and related IDs.
@@ -80,8 +80,8 @@ Do not require a complete literature baseline before provisional brainstorming. 
 
 When the user asks to combine mature methods from other fields, read [references/cross-domain-method-atlas.md](references/cross-domain-method-atlas.md) and [references/validation-routes.md](references/validation-routes.md). Use this sequence:
 
-1. Select the primary validation route for each candidate: **problem-existence** or **effect-efficacy**.
-2. For problem-existence, start from a verified target problem in `问题结构图谱.md`. For effect-efficacy, start from an established target task and strong native baseline, then select a verified mature method with a relevant demonstrated capability.
+1. **Default to the effect-efficacy route.** Only switch to problem-existence when the central contribution depends on proving that a target assumption, guarantee, or workflow actually fails. See [references/validation-routes.md](references/validation-routes.md) for both routes.
+2. For **effect-efficacy**, start from an established target task and strong native baseline, then select a verified mature method with a relevant demonstrated capability. For **problem-existence**, start from a verified target problem in `问题结构图谱.md`.
 3. Choose one bounded source-domain scan from `06-跨领域方法库/索引.md`.
 4. Search authoritative reviews, handbooks, standards, canonical papers, and independent applications.
 5. Admit a method card only after its structural purpose, inputs, outputs, assumptions, maturity evidence, and failure boundaries are traceable.
@@ -92,7 +92,7 @@ When the user asks to combine mature methods from other fields, read [references
 
 Record negative matches. Do not let later brainstorming repeat a rejected pair without new evidence.
 
-Do not equate falsifiability with problem-existence testing. For an effect-efficacy idea, make the primary probe a controlled comparison of the adapted method against strong baselines, with a minimum meaningful improvement, ablations, uncertainty, and resource costs. When generating a diverse batch, consider both validation routes unless the user or available evidence clearly favors one.
+Do not equate falsifiability with problem-existence testing. For an effect-efficacy idea, make the primary probe a controlled comparison of the adapted method against strong baselines, with a minimum meaningful improvement, ablations, uncertainty, and resource costs. When generating a diverse batch, **default to the effect-efficacy route**. Only shift to problem-existence when the user or available evidence clearly requires proving that a target limitation actually exists.
 
 ## Verify Differentiation
 
