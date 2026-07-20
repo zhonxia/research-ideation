@@ -24,7 +24,7 @@ Use these eleven methods to create candidates. Generation produces hypotheses an
 
 Use combination innovation as a systematic discovery process across the target problem-structure map and a verified cross-domain method atlas. Read [cross-domain-method-atlas.md](cross-domain-method-atlas.md) before running a broad combination scan.
 
-Read [validation-routes.md](validation-routes.md) and choose one primary route for each candidate:
+Read [evaluation-guide.md](evaluation-guide.md) and choose one primary route for each candidate:
 
 - **Problem-existence**: the contribution depends on showing that a target limitation materially exists.
 - **Effect-efficacy**: the target task is already legitimate, and the contribution depends on an adapted mature method outperforming current practice.

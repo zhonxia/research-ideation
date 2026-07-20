@@ -125,7 +125,7 @@ agents/openai.yaml          Codex UI 元数据
 assets/                     工作区模板
 references/                 详细方法与契约
 references/cross-domain-method-atlas.md  组合搜索协议
-references/validation-routes.md  问题存在性与效果实证验证路线
+references/evaluation-guide.md  路线选择、研究类型、白皮书模板、评分、叙事框架
 scripts/init_idea.py        确定性初始化器
 scripts/validate_idea_index.py  工作区校验器
 scripts/package_skill.py    精简发布包构建器

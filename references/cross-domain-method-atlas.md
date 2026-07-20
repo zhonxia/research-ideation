@@ -30,7 +30,7 @@ Provisional research candidate
 
 Do not match domain labels directly. Match the target problem or task structure to the structure a method is designed to solve.
 
-Combination innovation supports two entry routes. Read [validation-routes.md](validation-routes.md) before matching:
+Combination innovation supports two entry routes. Read [evaluation-guide.md](evaluation-guide.md) before matching:
 
 - **Problem-led**: start from a verified target limitation and test whether it materially exists.
 - **Method-led effect scan**: start from a verified mature capability, then search established target tasks where a target-specific adaptation could deliver measurable benefit over a strong native baseline.

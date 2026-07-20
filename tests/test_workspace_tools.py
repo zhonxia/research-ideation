@@ -199,9 +199,9 @@ score_version: v2
         skill_root = Path(__file__).resolve().parents[1]
         skill = (skill_root / "SKILL.md").read_text(encoding="utf-8")
         methods = (skill_root / "references" / "idea-generation-methods.md").read_text(encoding="utf-8")
-        routes = (skill_root / "references" / "validation-routes.md").read_text(encoding="utf-8")
+        routes = (skill_root / "references" / "evaluation-guide.md").read_text(encoding="utf-8")
         card = (skill_root / "assets" / "研究点子卡.md").read_text(encoding="utf-8")
-        evaluation = (skill_root / "references" / "evaluation-template.md").read_text(encoding="utf-8")
+        evaluation = routes  # evaluation-guide.md contains both routes and template
 
         for text in (skill, methods, routes):
             self.assertIn("problem-existence", text)

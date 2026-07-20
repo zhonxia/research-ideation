@@ -144,7 +144,7 @@ agents/openai.yaml          Codex UI metadata
 assets/                     Workspace templates
 references/                 Detailed methods and contracts
 references/cross-domain-method-atlas.md  Combination-search protocol
-references/validation-routes.md  Problem-existence vs effect-efficacy validation
+references/evaluation-guide.md  Route selection, profiles, template, scoring, and framing
 scripts/init_idea.py        Deterministic initializer
 scripts/validate_idea_index.py  Workspace validator
 scripts/package_skill.py    Lean release builder
