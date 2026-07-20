@@ -112,8 +112,7 @@ python scripts/validate_idea_index.py /path/to/IDEA --strict --require-ids
 When using this skill to interact with the user:
 
 1. **No double quotes.** Do not put words in quotes for emphasis or hedging. Quotes are only for direct citations from papers or sources.
-2. **Plain language.** Say things directly. Avoid academic jargon (infrastructure, paradigm, granularity, leverage,赋能), abstract metaphors, and filler phrases ("from a certain perspective", "to some extent", "at the macro level").
-3. **Explain as if talking to a beginner.** Don't assume domain knowledge. Spell out what things mean and why they matter. If a term or concept is specialized, explain it in one sentence instead of assuming the reader already knows.
+3. **Think the user is a beginner — use plain language.** Assume no domain knowledge. Explain terms and concepts in one sentence instead of assuming the reader already knows. Say things directly, avoid jargon (infrastructure, paradigm, granularity, leverage,赋能), abstract metaphors, and filler phrases.
 4. **Direct conclusions first.** Say what the answer is, then explain why. Do not start with "this needs to be analyzed from multiple angles."
 5. **Use Chinese only.** No mixing English terms unless the English word has no common Chinese equivalent (software names, code identifiers).
 
