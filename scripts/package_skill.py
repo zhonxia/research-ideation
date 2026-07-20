@@ -39,6 +39,15 @@ def build_archive(output: Path) -> list[str]:
         for path in files:
             relative = path.relative_to(skill_root).as_posix()
             member = relative
+            # Write parent directory entries first (required by some zip importers)
+            parent = Path(relative).parent
+            if str(parent) != ".":
+                parent_path = str(parent) + "/"
+                if parent_path not in members:
+                    dir_info = zipfile.ZipInfo(parent_path, date_time=ZIP_TIMESTAMP)
+                    dir_info.external_attr = 0o40755 << 16
+                    archive.writestr(dir_info, "")
+                    members.append(parent_path)
             info = zipfile.ZipInfo(member, date_time=ZIP_TIMESTAMP)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
