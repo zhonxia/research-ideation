@@ -23,6 +23,18 @@ Do not rewrite an effect claim as a problem-existence claim merely to make the a
 
 When generating a batch of combination ideas, consider both routes. Unless the evidence or user request clearly favors one route, do not make every candidate use the same route.
 
+## Lifecycle Calibration
+
+Route selection happens during generation, but contribution detail grows by stage:
+
+| Stage | Required contribution detail |
+|---|---|
+| Brainstorming / `初筛` | A plausible innovation hook: what capability is borrowed, why direct transfer may be insufficient, and one or two candidate mechanism directions |
+| `评估中` | A concrete method or knowledge delta against the closest work and direct transfer, plus the comparison and falsification design |
+| `进行中` | A complete algorithmic, theoretical, measurement, or constructive contribution aligned with the paper's claims |
+
+At `初筛`, the target-specific adaptation may remain a mechanism family rather than a finalized formulation. Do not demand implementation-level detail that suppresses exploration. Direct application without an innovation hook still fails the screen.
+
 ## Problem-Existence Route
 
 Use this route when the research contribution depends on showing that a target-field assumption, guarantee, metric, or workflow actually fails.
@@ -76,7 +88,7 @@ An average improvement alone is insufficient when it comes from more parameters,
 
 ## Shared Scientific Requirements
 
-Both routes must still establish:
+Both routes must still establish the following at the depth appropriate to the lifecycle stage:
 
 1. Structural fit rather than label similarity.
 2. A contribution beyond interface glue.
@@ -84,7 +96,7 @@ Both routes must still establish:
 4. A route-aligned falsification criterion.
 5. Generalizable knowledge: mechanism, design rule, boundary, or reproducible effect rather than a one-dataset win.
 
-The adaptation need not repair a newly discovered defect. It may encode target constraints, exploit target structure, reduce cost, or improve an established outcome.
+The adaptation need not repair a newly discovered defect. It may encode target constraints, exploit target structure, reduce cost, or improve an established outcome. During `初筛`, treat this as a contribution hypothesis; verify that it is scientifically substantive during `评估中`.
 
 ## Route-Specific Probe Templates
 

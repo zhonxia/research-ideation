@@ -76,6 +76,14 @@ When brainstorming:
 
 Do not require a complete literature baseline before provisional brainstorming. Require sufficient evidence before evaluation, prioritization, or novelty claims.
 
+Calibrate contribution detail to the lifecycle stage:
+
+- **Brainstorming / `初筛`**: require only a contribution sketch: the borrowed capability, why direct transfer may be insufficient, one or two plausible innovation hooks, and a discriminating probe or stop condition. Do not require a finalized objective, algorithm, theorem, or proof.
+- **`评估中`**: resolve the sketch into a concrete delta against the closest work and direct transfer, with a defensible mechanism and evaluation design.
+- **`进行中`**: require the complete method, theory, measurement design, or constructive artifact needed to support the paper's claims.
+
+Direct application alone is not an innovation hook. Conversely, do not reject a promising early idea merely because its exact mechanism has not yet been selected.
+
 ## Run Systematic Combination Innovation
 
 When the user asks to combine mature methods from other fields, read [references/cross-domain-method-atlas.md](references/cross-domain-method-atlas.md) and [references/validation-routes.md](references/validation-routes.md). Use this sequence:
@@ -88,7 +96,7 @@ When the user asks to combine mature methods from other fields, read [references
 6. Match target structures to method purposes, not by domain labels or trend status.
 7. Check native alternatives, assumption compatibility, and whether the adaptation adds scientific knowledge beyond interface glue.
 8. Write a route-specific bridge statement and record the result in `扫描记录.md` as promising, negative, deferred, or promoted.
-9. Hand promising pairs to Method 3 for deep transfer validation before adding them to the idea inbox.
+9. Hand promising pairs to Method 3. Use a lightweight transfer sketch for brainstorming and `初筛`; reserve deep transfer validation for `评估中`.
 
 Record negative matches. Do not let later brainstorming repeat a rejected pair without new evidence.
 

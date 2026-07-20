@@ -128,7 +128,7 @@ If the statement cannot be completed with evidence, record a negative or deferre
 
 ## Hand Off To Method Transplantation
 
-Combination innovation ends after it discovers and records a promising pair. Method transplantation then performs the deep transfer analysis:
+Combination innovation ends after it discovers and records a promising pair. Method transplantation then performs a stage-calibrated transfer analysis. During brainstorming and `初筛`, record only the borrowed capability, a plausible target-specific innovation hook, why direct transfer may be insufficient, and the minimum discriminating probe. During `评估中`, complete the deeper analysis:
 
 - Construct-to-construct mapping
 - Preserved, violated, and unknown assumptions
@@ -138,7 +138,7 @@ Combination innovation ends after it discovers and records a promising pair. Met
 - Required theoretical or algorithmic adaptation
 - Minimum discriminating probe
 
-Only after this handoff should a pair enter the idea inbox.
+Only after the lightweight handoff should a pair enter the idea inbox or receive `初筛` status. Do not require the full algorithm or theory before provisional promotion; do require it before the idea advances beyond evaluation.
 
 ## Coverage And Stopping Rules
 

@@ -66,7 +66,7 @@ Output: affected population/system, observed consequence, and why current workar
 
 ## 3. Method Transplantation
 
-Deeply validate one promising problem-method pair discovered by Method 1 or another evidence-backed route. Method 3 does not perform broad random scanning.
+Validate one promising problem-method pair discovered by Method 1 or another evidence-backed route. Method 3 does not perform broad random scanning. Match the depth to the lifecycle stage: use a lightweight transfer sketch during brainstorming and `初筛`, then perform the full analysis during `评估中`.
 
 ### Procedure
 
@@ -79,7 +79,16 @@ Deeply validate one promising problem-method pair discovered by Method 1 or anot
 7. Specify the theoretical, algorithmic, measurement, or design adaptation required by target constraints.
 8. Define the route-aligned minimum discriminating probe and stop criterion.
 
-Output: validation route, construct mapping, assumption ledger, native alternatives, required adaptation, comparison design, and minimum probe. Promote the pair only when the adaptation yields generalizable knowledge or a reproducible, meaningful effect beyond extra resources.
+For brainstorming and `初筛`, the minimum output is:
+
+- borrowed capability and target task;
+- a credible reason direct transfer may be insufficient;
+- one or two candidate innovation hooks at the mechanism-family level;
+- direct-transfer control, minimum probe, and stop condition.
+
+Do not require an exact objective, solver, theorem, or proof at this stage. Do not treat direct application as the innovation itself.
+
+For `评估中`, output the full validation route, construct mapping, assumption ledger, native alternatives, concrete adaptation, comparison design, and minimum probe. Advance to `进行中` only when the adaptation is supported as generalizable knowledge or a reproducible, meaningful effect beyond extra resources.
 
 ## 4. Theory Deep Dive
 
