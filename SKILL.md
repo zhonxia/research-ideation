@@ -57,22 +57,57 @@ It maps each asset to the correct destination and does not overwrite existing fi
 
 ## Generate And Screen Ideas
 
-1. **Default to effect-efficacy** (borrow a mature method, adapt it, compare against baselines). Only switch to problem-existence when the central claim depends on proving that a target limitation actually exists.
-2. Write candidates to `待评估点子.md`. No formal requirements — one line is enough.
+1. **Normalize the problem into a problem family.**
 
-When presenting generated ideas to the user, **each idea must use this exact format**:
+   Break the candidate problem into five dimensions: phenomenon, input object, existing BRB mechanism, output objective, application scenario.
 
-> **1. 解决什么问题：** 一句话点明核心痛点或 Gap。
-> **2. 创新切入点：** 一句话说明最独特的抓手是什么。
-> **3. 应用价值：** 一句话概括理论或实际意义。
+   Then expand into synonyms and mechanism family. Example — "measurement error" expands to:
+   - measurement error, sensor noise, observation unreliability, input uncertainty, attribute reliability, attribute importance, sensor perturbation
+   - attribute reliability, attribute reliability BRB, observability uncertainty, input quality
 
-每点控制在 1-2 句话内，不要展开成段落。
+   Search across: (a) the idea registry in 索引.md, (b) the `新颖性验证` section (published-paper mappings), (c) literature detail notes in `05-文献库/`.
 
-3. Deduplicate against the registry (titles, aliases, related IDs). **Also check the `新颖性验证` section in the same file — published papers mapped there count as prior art.**
-4. Promote worthwhile candidates to the registry with a stable ID and status `初筛`.
-5. Apply the four hard gates (significance, falsifiability, resources, ethics). Reject or park failed candidates with a reason.
+2. **Pre-generation block.**
 
-If stuck, read `references/idea-generation-methods.md` for alternative approaches.
+   If existing BRB literature simultaneously satisfies:
+   - same problem + same mechanism + same output objective,
+
+   automatically mark as covered. Reject the candidate and record which paper covers it.
+
+   Only allow generation when at least one of these differences exists:
+   - new mechanism (not just renaming an existing one)
+   - new theoretical guarantee (convergence, bound, consistency)
+   - new data-generation assumption (censored, selective, adversarial)
+   - new decision objective (new loss, new risk criterion)
+   - new evaluation protocol (new benchmark, new human study)
+
+3. **Write survivors to `待评估点子.md`.** No formal requirements — one line is enough.
+
+   When presenting generated ideas to the user, **each idea must use this exact format**:
+
+   > **1. 解决什么问题：** 一句话点明核心痛点或 Gap。
+   > **2. 创新切入点：** 一句话说明最独特的抓手是什么。
+   > **3. 应用价值：** 一句话概括理论或实际意义。
+
+   每点控制在 1-2 句话内，不要展开成段落。
+
+4. **Deduplicate against the registry (titles, aliases, related IDs).** Also check the `新颖性验证` section in the same file — published papers mapped there count as prior art.
+
+5. **Promote worthwhile candidates to the registry** with a stable ID and status `初筛`.
+
+6. **Apply the four hard gates** (significance, falsifiability, resources, ethics). Reject or park failed candidates with a reason.
+
+**Hard rule:** Do not re-describe a problem already solved by an existing BRB paper as a new problem. Do not rename an existing mechanism (attribute reliability, robustness, interval modeling) into new statistical terminology and keep it as a candidate.
+
+**High-risk family list for BRB (pre-block without a new difference):**
+- Attribute reliability / input uncertainty / sensor quality
+- Missing-value mechanism (including MNAR, selective labels)
+- Interval rule structure / automated structure
+- Interpretability-accuracy trade-off / dual interpretability
+- Rule reduction / compression / information bottleneck
+- Online learning / incremental BRB / sliding window
+- Calibration / order-preserving / conformal prediction
+- Deep BRB / hierarchical structure
 
 ### Contribution Detail By Stage
 
