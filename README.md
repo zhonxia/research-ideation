@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![v4](https://img.shields.io/badge/version-v4-brightgreen)]()
+[![v4](https://img.shields.io/badge/version-v4.2-brightgreen)]()
 
 🇨🇳 [中文](README.zh.md)
 
@@ -10,46 +10,14 @@ An evidence-backed workflow for generating, screening, evaluating, and managing 
 
 ---
 
-### What changed in v4
+### What's new in v4.2
 
-v4 replaces the single-step brainstorm-and-score workflow with a staged funnel:
-
-```text
-Inbox -> deduplicate -> screen -> evaluate -> feasibility probe -> active
-                         |             |
-                         +-> reject    +-> park / duplicate / supersede / archive
-```
-
-Key changes:
-
-- Stable idea IDs: `IDEA-YYYY-NNNN`
-- Clear separation between local coverage gaps and validated research gaps
-- Hard gates before scoring: significance, answerability, resources, ethics
-- Weighted 100-point scoring with confidence and sensitivity analysis
-- Urgency as scheduling metadata, not a quality score
-- Profiles for theoretical, computational, qualitative, clinical/field, and design research
-- Eleven complementary generation methods, including contradiction mapping, counterexample-first, measurement-first, and regime mapping
-- A two-route combination workflow: problem-led discovery or method-led effect improvement, both backed by a verified cross-domain method atlas
-- A lightweight research idea card before full evaluation
-- Four-part novelty-claim decomposition, abstract triage, focused full-text review, and a concrete Delta Statement
-- A canonical registry plus a temporary inbox, eliminating duplicate lifecycle truth
-- Claim and evidence IDs instead of copied search-log rows
-- Deterministic initialization and a legacy-compatible validator
-
-**Deduplication flow:**
-
-```mermaid
-flowchart LR
-    A[New idea] --> B{Title/alias/ID<br>already in registry?}
-    B -->|Yes| C[Mark duplicate<br>record linked ID]
-    B -->|No| D{Matched published paper<br>in 新颖性验证 section?}
-    D -->|Yes| E[Tag collision risk<br>record paper ID]
-    D -->|No| F[Pass dedup<br>proceed to next step]
-    C --> G[Not promoted]
-    E --> H{Collision level}
-    H -->|High| I[Archive or pivot]
-    H -->|Medium/Low| F
-```
+- **Slimmed SKILL.md.** Down from 198 lines to ~120. A task router table tells you which file to read for each task — brainstorming only reads the entry point.
+- **9 references → 5.** `validation-routes.md`, `research-profiles.md`, `evaluation-template.md`, `scoring-v2.md`, and `story-framing.md` merged into `evaluation-guide.md`. Same content, fewer files.
+- **3-point output format.** Each generated idea is presented as: (1) what problem it solves, (2) the unique innovation hook, (3) the practical or theoretical value. No paragraphs.
+- **Built-in communication style.** The skill tells the AI to use plain language, no double quotes for hedging, assume the user is a beginner, put conclusions first, and write in Chinese only (for Chinese users).
+- **Smarter dedup.** Deduplication now checks both the idea registry and the `新颖性验证` section (published-paper mappings in the same file), preventing collisions with prior art.
+- **Default to effect-efficacy route.** Most published SCI papers follow the "borrow a mature method, adapt, compare against baselines" pattern. Only switch to problem-existence when the central claim depends on proving a limitation exists.
 
 ### Install
 
@@ -135,6 +103,23 @@ Combination innovation supports two primary validation routes:
 
 The effect-efficacy route requires baselines, ablations, uncertainty analysis, and resource accounting. It does not require inventing or proving a new target-field defect first.
 
+### Deduplication flow
+
+When a new idea is generated, the system checks both the idea registry and the published-paper mappings (the `新颖性验证` section in 索引.md):
+
+```mermaid
+flowchart LR
+    A[New idea] --> B{Title/alias/ID<br>already in registry?}
+    B -->|Yes| C[Mark duplicate<br>record linked ID]
+    B -->|No| D{Matched published paper<br>in 新颖性验证 section?}
+    D -->|Yes| E[Tag collision risk<br>record paper ID]
+    D -->|No| F[Pass dedup<br>proceed to next step]
+    C --> G[Not promoted]
+    E --> H{Collision level}
+    H -->|High| I[Archive or pivot]
+    H -->|Medium/Low| F
+```
+
 ### Run tests
 
 ```bash
@@ -150,16 +135,20 @@ python -m unittest discover -s tests -v
 5. Compare only ideas scored under the same version and compatible research profiles.
 6. Validate immediately after any lifecycle, evidence, or folder change.
 7. **Default to the effect-efficacy route.** Most published SCI papers follow the "borrow a mature method, adapt it to the target, compare against baselines" pattern. Only switch to the problem-existence route when the central claim depends on proving that a target limitation actually exists.
+8. **Explain as if talking to a beginner.** The skill enforces plain language, no double quotes for hedging, direct conclusions first, and no unnecessary English mixing in Chinese contexts.
 
 ### Repository layout
 
 ```text
-SKILL.md                    Core workflow and routing
+SKILL.md                    Core workflow and routing (task router table)
 agents/openai.yaml          Codex UI metadata
 assets/                     Workspace templates
-references/                 Detailed methods and contracts
+references/                 References (5 files, down from 9)
+references/evaluation-guide.md  Route selection, profiles, template, scoring, framing
+references/idea-generation-methods.md  11 generation methods with selection table
+references/novelty-protocol.md    Novelty-claim decomposition and literature verification
 references/cross-domain-method-atlas.md  Combination-search protocol
-references/evaluation-guide.md  Route selection, profiles, template, scoring, and framing
+references/data-contract.md       Registry, evidence, and claim data contracts
 scripts/init_idea.py        Deterministic initializer
 scripts/validate_idea_index.py  Workspace validator
 scripts/package_skill.py    Lean release builder

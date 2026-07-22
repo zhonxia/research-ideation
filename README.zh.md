@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![v4](https://img.shields.io/badge/version-v4-brightgreen)]()
+[![v4](https://img.shields.io/badge/version-v4.2-brightgreen)]()
 
 🇬🇧 [English](README.md)
 
@@ -10,30 +10,31 @@
 
 ---
 
-### v4 的核心变化
+### v4.2 的新内容
 
-v4 不再让每个灵感直接进入完整白皮书，而是采用逐级增加成本的漏斗：
+- **SKILL.md 精简了。** 从 198 行压到 120 行左右，顶部加了任务路由表，告诉你不同任务该读哪个文件。普通发散只看入口文件。
+- **9 个参考文件 → 5 个。** `validation-routes.md`、`research-profiles.md`、`evaluation-template.md`、`scoring-v2.md`、`story-framing.md` 合并成 `evaluation-guide.md`。内容没少，文件少了。
+- **三点输出格式。** 每个生成的点子按"解决什么问题/创新切入点/应用价值"三点出，每点 1-2 句话。
+- **内置通信风格。** 告诉 AI 用大白话、别用引号做强调、把用户当新手解释、结论先行、中文回答不混英文。
+- **查重更完整。** 去重时不仅查点子登记表，还查同一个文件里的"新颖性验证"章节（已发表论文映射），防止撞库。
+- **默认效果实证路线。** 大多数 SCI 论文都是借成熟方法→做适配→跟基线比效果这套路。只有核心贡献是证明某个问题真的存在时，才切到问题存在路线。
 
-```text
-Inbox → 去重 → 初筛 → 评估 → 最小可否证探针 → 进行中
-                    ↘ 拒绝       ↘ 搁置 / 重复 / 已取代 / 归档
+### 去重流程
+
+新点子生成后，同时检查登记册和已发表论文映射（索引.md 里的"新颖性验证"章节）：
+
+```mermaid
+flowchart LR
+    A[新点子] --> B{标题/别名/ID<br>在登记册中？}
+    B -->|有| C[标记重复<br>记录关联ID]
+    B -->|无| D{在 新颖性验证 节<br>有对应已发表论文？}
+    D -->|有| E[标注撞库风险<br>记录论文ID]
+    D -->|无| F[通过去重<br>进入下一步]
+    C --> G[不进注册表]
+    E --> H{撞库程度}
+    H -->|高| I[归档或转方向]
+    H -->|中/低| F
 ```
-
-主要改进：
-
-- 使用稳定点子 ID：`IDEA-YYYY-NNNN`
-- 严格区分"本地文献未覆盖"和"经检索支持的研究缺口"
-- 评分前先检查问题重要性、可回答性、资源和伦理四项硬门槛
-- 使用带置信度与敏感性分析的百分制评分
-- 紧迫性只影响排程，不再抬高质量总分
-- 支持理论、计算实验、定性、临床/现场、设计/构造研究
-- 十一种互补生成方法，新增矛盾地图、反例先行、测量先行、制度与相图法
-- 用问题发现型和方法增益型两条路线系统化组合创新，并共享经核验的跨领域方法库
-- 用轻量研究点子卡衔接初筛与正式评估
-- 将创新主张拆成四部分，经过宽搜、摘要初筛和重点全文核查后写出明确差异陈述
-- `索引.md` 是唯一生命周期真相源，`待评估点子.md` 只做临时 inbox
-- 白皮书引用 claim/evidence ID，不复制证据表
-- 初始化器确定性映射文件，校验器兼容旧格式
 
 ### 初始化
 
@@ -115,17 +116,21 @@ python scripts/validate_idea_index.py /path/to/IDEA --strict --require-ids
 4. 分数必须包含证据理由和置信度。
 5. 只比较相同评分版本和兼容研究类型。
 6. 生命周期、证据或文件夹变化后立即校验。
-7. **默认走效果实证路线。** 大多数 SCI 论文都是"借成熟方法、做适配、跟基线比效果"这个路子。只有当你研究的核心贡献是证明某个问题真实存在时，才切换到问题存在路线。
+7. **默认走效果实证路线。** 大多数 SCI 论文都是借成熟方法、做适配、跟基线比效果这个路子。只有当你研究的核心贡献是证明某个问题真实存在时，才切换到问题存在路线。
+8. **把用户当新手解释。** 用大白话、不用引号做强调、结论先行、中文回答里不混英文。
 
 ### 仓库结构
 
 ```text
-SKILL.md                    核心工作流与路由
+SKILL.md                    核心工作流与路由（含任务路由表）
 agents/openai.yaml          Codex UI 元数据
 assets/                     工作区模板
-references/                 详细方法与契约
+references/                 参考文件（从 9 个精简到 5 个）
+references/evaluation-guide.md  路线选择、研究类型、模板、评分、叙事框架
+references/idea-generation-methods.md  11 种生成方法及选择表
+references/novelty-protocol.md   新颖性声明分解与文献验证
 references/cross-domain-method-atlas.md  组合搜索协议
-references/evaluation-guide.md  路线选择、研究类型、白皮书模板、评分、叙事框架
+references/data-contract.md      注册表、证据、声明数据契约
 scripts/init_idea.py        确定性初始化器
 scripts/validate_idea_index.py  工作区校验器
 scripts/package_skill.py    精简发布包构建器
