@@ -68,7 +68,19 @@ When presenting generated ideas to the user, **each idea must use this exact for
 
 每点控制在 1-2 句话内，不要展开成段落。
 
-3. Deduplicate against the registry (titles, aliases, related IDs). **Also check the `新颖性验证` section in the same file — published papers mapped there count as prior art.**
+3. **Deduplication process:**
+   ```mermaid
+   flowchart LR
+       A[新点子] --> B{标题/别名/ID<br>在登记册中？}
+       B -->|是| C[标记重复<br>记录关联ID]
+       B -->|否| D{在 新颖性验证 节<br>有对应已发表论文？}
+       D -->|是| E[标注撞库风险<br>记录论文ID]
+       D -->|否| F[通过去重<br>进入下一步]
+       C --> G[不进入注册表]
+       E --> H{撞库程度}
+       H -->|高| I[归档或转方向]
+       H -->|中/低| F
+   ```
 4. Promote worthwhile candidates to the registry with a stable ID and status `初筛`.
 5. Apply the four hard gates (significance, falsifiability, resources, ethics). Reject or park failed candidates with a reason.
 
