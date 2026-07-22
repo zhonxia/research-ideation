@@ -68,7 +68,7 @@ When presenting generated ideas to the user, **each idea must use this exact for
 
 每点控制在 1-2 句话内，不要展开成段落。
 
-3. Deduplicate against the registry (titles, aliases, related IDs).
+3. Deduplicate against the registry (titles, aliases, related IDs). **Also check the `新颖性验证` section in the same file — published papers mapped there count as prior art.**
 4. Promote worthwhile candidates to the registry with a stable ID and status `初筛`.
 5. Apply the four hard gates (significance, falsifiability, resources, ethics). Reject or park failed candidates with a reason.
 
