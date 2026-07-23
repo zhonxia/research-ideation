@@ -126,7 +126,7 @@ The steps below automate this distinction.
 
    禁止用术语。
 
-4. **Deduplicate against the registry (titles, aliases, related IDs).** Also check the `新颖性验证` section in the same file — published papers mapped there count as prior art.
+4. **Deduplicate at the problem-family level, not just the keyword level.** Compare the candidate against the registry and the `新颖性验证` section using the same five dimensions from step 1: phenomenon, input object, BRB mechanism, output objective, application scenario. If all five match an existing entry — same problem, same mechanism — mark as duplicate even if the terminology is different.
 
 5. **Promote worthwhile candidates to the registry** with a stable ID and status `初筛`.
 
