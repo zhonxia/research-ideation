@@ -97,13 +97,13 @@ The steps below automate this distinction.
 
 3. **Write survivors to `待评估点子.md`.** No formal requirements — one line is enough.
 
-   When presenting generated ideas to the user, **each idea must use this exact format**:
+   When presenting generated ideas to the user, **assume the user is a complete beginner and explain in plain language.** Use this format:
 
-   > **1. 解决什么问题：** 一句话点明核心痛点或 Gap。
-   > **2. 创新切入点：** 一句话说明最独特的抓手是什么。
-   > **3. 应用价值：** 一句话概括理论或实际意义。
+   > **1. 解决什么问题：** 大白话讲清楚痛点或 Gap
+   > **2. 创新切入点：** 大白话讲为什么这个切入角度新
+   > **3. 应用价值：** 大白话讲实际有什么用
 
-   每点控制在 1-2 句话内，不要展开成段落。
+   禁止用术语。
 
 4. **Deduplicate against the registry (titles, aliases, related IDs).** Also check the `新颖性验证` section in the same file — published papers mapped there count as prior art.
 
