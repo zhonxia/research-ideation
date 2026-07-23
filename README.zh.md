@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![v4](https://img.shields.io/badge/version-v4.2-brightgreen)]()
+[![v4](https://img.shields.io/badge/version-v4.3-brightgreen)]()
 
 🇬🇧 [English](README.md)
 
@@ -10,7 +10,7 @@
 
 ---
 
-### v4.2 的新内容
+### v4.3 的新内容
 
 - **SKILL.md 精简了。** 从 198 行压到 120 行左右，顶部加了任务路由表，告诉你不同任务该读哪个文件。普通发散只看入口文件。
 - **9 个参考文件 → 5 个。** `validation-routes.md`、`research-profiles.md`、`evaluation-template.md`、`scoring-v2.md`、`story-framing.md` 合并成 `evaluation-guide.md`。内容没少，文件少了。

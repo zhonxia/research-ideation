@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![v4](https://img.shields.io/badge/version-v4.2-brightgreen)]()
+[![v4](https://img.shields.io/badge/version-v4.3-brightgreen)]()
 
 🇨🇳 [中文](README.zh.md)
 
@@ -10,7 +10,7 @@ An evidence-backed workflow for generating, screening, evaluating, and managing 
 
 ---
 
-### What's new in v4.2
+### What's new in v4.3
 
 - **Slimmed SKILL.md.** Down from 198 lines to ~120. A task router table tells you which file to read for each task — brainstorming only reads the entry point.
 - **9 references → 5.** `validation-routes.md`, `research-profiles.md`, `evaluation-template.md`, `scoring-v2.md`, and `story-framing.md` merged into `evaluation-guide.md`. Same content, fewer files.
