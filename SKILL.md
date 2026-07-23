@@ -57,6 +57,20 @@ It maps each asset to the correct destination and does not overwrite existing fi
 
 ## Generate And Screen Ideas
 
+**Thinking philosophy:** A common trap in research ideation — an idea feels novel, but searching reveals similar work already exists. The right response is not a binary "abandon or proceed". Instead, distinguish:
+
+- **Same problem?** Does the existing work target the same limitation with the same mechanism and the same output objective? → covered, record and move on.
+- **Same goal but different angle?** Different mechanism, different theoretical guarantee, different data assumption, or different decision objective? → a legitimate new candidate, but the delta must be explicitly stated.
+
+```
+                   +-- same problem + same mechanism → covered
+New idea ──→ match ┤
+                   +-- same goal but different entry point → viable,
+                       but must articulate the delta explicitly
+```
+
+The steps below automate this distinction.
+
 1. **Normalize the problem into a problem family.**
 
    Break the candidate problem into five dimensions: phenomenon, input object, existing BRB mechanism, output objective, application scenario.
