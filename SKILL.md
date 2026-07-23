@@ -75,6 +75,23 @@ The steps below automate this distinction.
 
    Read `references/idea-generation-methods.md`. Every method has a weight in the method-selection table. Use the weights like a roulette wheel — higher weight = more likely to be chosen. Pick a primary method by weighted probability, then pick a secondary method by weighted probability again. This keeps common routes frequent without starving novel ones.
 
+0b. **Contribution-type gate: the candidate must answer a non-trivial scientific question.**
+
+   Ask: **What does this reveal?** If the answer is "I moved method X to BRB and verified it works", block it — that's an engineering task, not a scientific contribution.
+
+   Pass if the output includes at least one of:
+   - **New discovery** — reveals an unstructured behavior of BRB not previously understood
+   - **New mechanism** — constructs a reasoning mode or guarantee that didn't exist before
+   - **New explanation** — explains an existing phenomenon that was attributed to the wrong cause
+   - **New boundary** — finds the conditions under which an existing theory or method fails
+
+   Fail examples:
+   - "Use epidemiology negative controls to detect BRB overfitting" → reveals common knowledge
+   - "Use X method to improve BRB accuracy" → swaps the tool, reveals nothing
+   - "Provide a contamination detection toolkit" → engineering deliverable, not a scientific question
+
+   Blocked candidates are not written to the inbox. Instead, record the reason in a note so the user can review the decision later.
+
 1. **Normalize the problem into a problem family.**
 
    Break the candidate problem into five dimensions: phenomenon, input object, existing BRB mechanism, output objective, application scenario.
