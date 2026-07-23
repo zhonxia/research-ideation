@@ -204,21 +204,25 @@ BRB/ER example: map rule count, evidence dependence, and weight perturbation to 
 
 ## Method Selection
 
-| Available signal | Prefer | Validation route |
-|---|---|---|
-| Target task + mature method with same abstract structure | Combination innovation | **Effect-efficacy (default)** |
-| Mature construct in another field | Method transplantation | **Effect-efficacy (default)** |
-| Concrete outcome blocked by missing knowledge | Goal-driven reverse engineering | Mixed |
-| Repeated practical or empirical weakness | Weakness triangulation | Problem-existence |
-| Missing mathematical foundation | Theory deep dive | Problem-existence |
-| Unrealistic default assumption | Boundary and assumption challenge | Problem-existence |
-| Explicit unresolved statement with a citation history | Citation-chain gap mining | Problem-existence |
-| Credible results that cannot all be true under one model | Contradiction mapping | Problem-existence |
-| Accepted property that may fail on a small instance | Counterexample-first research | Problem-existence |
-| Weak construct, proxy, metric, or benchmark | Measurement-first research | Problem-existence |
-| Behavior changes across scale or operating conditions | Regime and phase mapping | Problem-existence |
+Each method has a **weight**. Higher weight = more likely to be chosen in a probabilistic draw. This ensures common routes are used often but novel routes are never starved.
 
-Default to the effect-efficacy route (rows marked "Effect-efficacy (default)"). Only use problem-existence when the research contribution depends on proving that a target limitation actually exists.
+| Method | Weight | Available signal | Validation route |
+|---|---|---|---|
+| Method transplantation | 30 | Mature method in another field + target task | **Effect-efficacy (default)** |
+| Combination innovation | 25 | Cross-domain method match + target structure | **Effect-efficacy (default)** |
+| Boundary and assumption challenge | 15 | Unrealistic default assumption | Problem-existence |
+| Weakness triangulation | 8 | Repeated practical or empirical weakness | Problem-existence |
+| Theory deep dive | 10 | Missing mathematical foundation | Problem-existence |
+| Counterexample-first research | 5 | Accepted property that may fail on a small instance | Problem-existence |
+| Contradiction mapping | 3 | Credible results cannot all be true under one model | Problem-existence |
+| Citation-chain gap mining | 2 | Explicit unresolved statement with citation history | Problem-existence |
+| Goal-driven reverse engineering | 1 | Concrete outcome blocked by missing knowledge | Mixed |
+| Measurement-first research | 1 | Weak construct, proxy, metric, or benchmark | Problem-existence |
+| Regime and phase mapping | <1 | Behavior changes across scale or conditions | Problem-existence |
+
+**How to use:** Imagine a roulette wheel where each method occupies a slice proportional to its weight. Spin once to select the primary method, then spin again for a secondary method. This keeps common routes frequent while ensuring every method gets tried eventually.
+
+**Default to the effect-efficacy route** (rows marked "Effect-efficacy (default)"). Only use problem-existence when the research contribution depends on proving that a target limitation exists.
 
 Use more than one method only when each contributes a different artifact. Do not relabel one candidate eleven times.
 

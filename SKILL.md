@@ -71,11 +71,9 @@ New idea ──→ match ┤
 
 The steps below automate this distinction.
 
-0. **Choose a generation method.**
+0. **Choose a generation method by weight.**
 
-   Read `references/idea-generation-methods.md` — it lists 11 methods (combination innovation, weakness triangulation, method transplantation, theory deep dive, boundary challenge, citation-chain mining, goal-driven reverse engineering, contradiction mapping, counterexample-first, measurement-first, regime mapping).
-
-   Pick 2-3 methods and generate one candidate per method. Do not default to the same method every time. Rotate across methods across different sessions.
+   Read `references/idea-generation-methods.md`. Every method has a weight in the method-selection table. Use the weights like a roulette wheel — higher weight = more likely to be chosen. Pick a primary method by weighted probability, then pick a secondary method by weighted probability again. This keeps common routes frequent without starving novel ones.
 
 1. **Normalize the problem into a problem family.**
 
