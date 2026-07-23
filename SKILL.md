@@ -71,6 +71,12 @@ New idea ──→ match ┤
 
 The steps below automate this distinction.
 
+0. **Choose a generation method.**
+
+   Read `references/idea-generation-methods.md` — it lists 11 methods (combination innovation, weakness triangulation, method transplantation, theory deep dive, boundary challenge, citation-chain mining, goal-driven reverse engineering, contradiction mapping, counterexample-first, measurement-first, regime mapping).
+
+   Pick 2-3 methods and generate one candidate per method. Do not default to the same method every time. Rotate across methods across different sessions.
+
 1. **Normalize the problem into a problem family.**
 
    Break the candidate problem into five dimensions: phenomenon, input object, existing BRB mechanism, output objective, application scenario.
