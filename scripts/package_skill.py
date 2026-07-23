@@ -38,7 +38,6 @@ def build_archive(output: Path) -> list[str]:
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in files:
             relative = path.relative_to(skill_root).as_posix()
-            member = relative
             # Write parent directory entries first (required by some zip importers)
             parent = Path(relative).parent
             if str(parent) != ".":
@@ -48,11 +47,9 @@ def build_archive(output: Path) -> list[str]:
                     dir_info.external_attr = 0o40755 << 16
                     archive.writestr(dir_info, "")
                     members.append(parent_path)
-            info = zipfile.ZipInfo(member, date_time=ZIP_TIMESTAMP)
-            info.compress_type = zipfile.ZIP_DEFLATED
-            info.external_attr = 0o644 << 16
-            archive.writestr(info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
-            members.append(member)
+            # Use archive.write() instead of manual ZipInfo to handle UTF-8 filenames correctly
+            archive.write(path, arcname=relative)
+            members.append(relative)
     return members
 
 
